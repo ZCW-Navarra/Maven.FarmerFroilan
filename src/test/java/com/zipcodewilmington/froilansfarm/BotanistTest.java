@@ -1,4 +1,4 @@
-package com.zipcodewilmington.froilansfarm.weekdayTests;
+package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.Botanist;
 import org.junit.Test;
