@@ -64,4 +64,45 @@ public class AbstractWeekdayTest {
     public void froilanInheritanceTestNoiseMaker() {
         assertTrue(froilan instanceof NoiseMaker);
     }
+
+    @Test
+    public void testRideHorses() {
+        for (Stable s : stables) {
+            for (Horse h : s) {
+                assertTrue(h.toString(), h.ride());
+            }
+        }
+    }
+
+    @Test
+    public void testFeedHorses() {
+        for (Stable s : stables) {
+            for (Horse h : s) {
+                int expectedTimesFed = 0;
+                assertEquals(h.toString() + " pre-eat failure", expectedTimesFed, h.getNumTimesFed());
+
+                h.eat(new EarCorn());
+                h.eat(new EarCorn());
+                h.eat(new EarCorn());
+
+                expectedTimesFed = 3;
+
+                assertEquals(h.toString() + " post-eat failure", expectedTimesFed, h.getNumTimesFed());
+            }
+        }
+    }
+
+    @Test
+    public void testClearTimesFedHorses() {
+        testFeedHorses();
+        for (Stable s : stables) {
+            for (Horse h : s) {
+                int expectedTimesFed = 0;
+
+                h.clearTimesFed();
+
+                assertEquals(h.toString(), expectedTimesFed, h.getNumTimesFed());
+            }
+        }
+    }
 }
