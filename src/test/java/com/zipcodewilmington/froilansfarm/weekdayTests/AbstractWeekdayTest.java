@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
-import com.zipcodewilmington.froilansfarm.SharedFixture;
+import com.zipcodewilmington.froilansfarm.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 //import org.junit.runners.Suite.SuiteClasses;
@@ -19,8 +19,6 @@ public class AbstractWeekdayTest {
     static Pilot froilanda;
     static Farm froilansFarm;
 
-
-    // TODO : Make these testable!!!
     @BeforeClass
     public static void setup() {
         fixture = new SharedFixture();
