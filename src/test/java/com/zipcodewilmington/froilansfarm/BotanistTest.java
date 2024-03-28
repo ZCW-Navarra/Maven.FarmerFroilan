@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm;
 
-import com.zipcodewilmington.froilansfarm.Botanist;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
