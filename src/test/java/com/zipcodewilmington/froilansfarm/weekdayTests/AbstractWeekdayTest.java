@@ -2,7 +2,12 @@ package com.zipcodewilmington.froilansfarm.weekdayTests;
 
 import com.zipcodewilmington.froilansfarm.SharedFixture;
 import org.junit.BeforeClass;
+import org.junit.runners.Suite.SuiteClasses;
+import org.junit.runners.Suite;
+import org.junit.runner.RunWith;
 
+//@RunWith(Suite.class)
+//@SuiteClasses({SundayTest.class, MondayTest.class, TuesdayTest.class, WednesdayTest.class, ThursdayTest.class, FridayTest.class, SaturdayTest.class})
 public class AbstractWeekdayTest {
     static SharedFixture fixture;
 
@@ -12,12 +17,14 @@ public class AbstractWeekdayTest {
         fixture = new SharedFixture();
         fixture.initialize();
 
-        for (Horse h : fixture.getStables()) {
-            froilan.mount(h);
-            froilan.dismount(h);
-            h.eat(new EarCorn());
-            h.eat(new EarCorn());
-            h.eat(new EarCorn());
+        for (Stable s : fixture.getStables()) {
+            for (Horse h : s) {
+                fixture.getFroilan().mount(h);
+                fixture.getFroilan().dismount(h);
+                h.eat(new EarCorn());
+                h.eat(new EarCorn());
+                h.eat(new EarCorn());
+            }
         }
 
         fixture.getFroilan().eat(new EarCorn());

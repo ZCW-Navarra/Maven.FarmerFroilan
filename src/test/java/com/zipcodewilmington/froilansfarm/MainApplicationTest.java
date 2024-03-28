@@ -7,13 +7,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by leon on 2/26/18.
  */
 @RunWith(Suite.class)
-@SuiteClasses({Sunday.class, Monday.class, Tuesday.class, Wednesday.class, Thursday.class, Friday.class, Saturday.class})
+@SuiteClasses({SundayTest.class, MondayTest.class, TuesdayTest.class, WednesdayTest.class, ThursdayTest.class, FridayTest.class, SaturdayTest.class})
 public class MainApplicationTest {
     private static SharedFixture fixture;
 
