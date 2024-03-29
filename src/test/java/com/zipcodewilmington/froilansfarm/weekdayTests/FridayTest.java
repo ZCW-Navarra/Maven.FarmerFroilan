@@ -5,7 +5,7 @@ import com.zipcodewilmington.froilansfarm.*;
 
 import static org.junit.Assert.*;
 
-public class FridayTest extends AbstractWeekdayTest {
+public class FridayTest {
     @Test
     public void testHorseIsAHorse() {
         Horse h = new Horse();

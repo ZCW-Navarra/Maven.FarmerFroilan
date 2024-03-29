@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MondayTest extends AbstractWeekdayTest {
+public class MondayTest {
 
 
     /**

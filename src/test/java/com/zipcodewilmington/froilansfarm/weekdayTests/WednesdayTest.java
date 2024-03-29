@@ -3,7 +3,7 @@ package com.zipcodewilmington.froilansfarm.weekdayTests;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class WednesdayTest extends AbstractWeekdayTest {
+public class WednesdayTest {
     // Riding each Horse in each Stable
     // - test that each Horse is a Horse
 
