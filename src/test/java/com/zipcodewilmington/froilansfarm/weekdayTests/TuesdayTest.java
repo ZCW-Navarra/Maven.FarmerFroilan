@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
-import com.zipcodewilmington.froilansfarm.Farmer;
+import com.zipcodewilmington.froilansfarm.*;
 import org.junit.Test;
 
 import static  org.junit.Assert.*;
@@ -84,9 +84,9 @@ public class TuesdayTest {
 
     @Test
     public void testEarCornIsEarCorn() {
-        EarCorn e = new Earcorn();
+        EarCorn e = new EarCorn();
 
-        assertTrue();
+        assertTrue(e instanceof EarCorn);
     }
 
     @Test
@@ -185,15 +185,15 @@ public class TuesdayTest {
 
     @Test
     public void testFroilandaIsEater() {
-        Farmer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
 
         assertTrue(froilanda instanceof Eater);
     }
 
     @Test
     public void froilandaEatsEarCorn() {
-        Farmer froilanda = new Farmer();
-        EarCorn ec = new EarcCorn();
+        Pilot froilanda = new Pilot();
+        EarCorn ec = new EarCorn();
 
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
@@ -203,7 +203,7 @@ public class TuesdayTest {
 
     @Test
     public void froilandaEatsTomato() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Tomato t = new Tomato();
 
         assertTrue(froilanda.eat(t));
@@ -214,7 +214,7 @@ public class TuesdayTest {
 
     @Test
     public void froilandaEatsEgg() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
 
         assertTrue(froilanda.eat(e));
@@ -225,14 +225,16 @@ public class TuesdayTest {
 
     @Test
     public void froilandaEatsFood() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
 
-        froilanda.eat(Egg, 2);
-        froilanda.eat(Tomato, 1);
-        froilanda.eat(EarCorn, 2);
+        froilanda.eat(e);
+        froilanda.eat(e);
+        froilanda.eat(t);
+        froilanda.eat(ec);
+        froilanda.eat(ec);
 
         assertEquals(2, froilanda.getNumTimesEaten(e));
         assertEquals(1, froilanda.getNumTimesEaten(t));
@@ -254,13 +256,13 @@ public class TuesdayTest {
     }
 
     @Test
-    public <T extends Crop> void testCropRowHoldsCrop() {
-        CropRow<T extends Crop> cr = new CropRow<>();
+    public void testCropRowHoldsCrop() {
+        CropRow<Crop> cr = new CropRow<>();
         // You can instantiate an abstract class by doing the following:
         // new AbstractClassName() {}
-        cr.add(new Crop() {});
+        cr.add(new Crop(EarCorn::new) {});
 
-        assertTrue(cr instanceof CropRow<T>);
+        assertTrue(cr instanceof CropRow);
         assertTrue(cr.get(0) instanceof Crop);
     }
 
@@ -348,7 +350,7 @@ public class TuesdayTest {
         Farmer froilan = new Farmer();
         Tractor t = new Tractor();
 
-        assertTrue(froiland.mount(t));
+        assertTrue(froilan.mount(t));
         assertTrue(froilan.dismount(t));
 
 
@@ -395,9 +397,9 @@ public class TuesdayTest {
     public void testTractorHarvestCornStalk() {
         Tractor t = new Tractor();
         CornStalk cs = new CornStalk();
-        CropRow<Cornstalk> cr = new CropRow<>();
+        CropRow<CornStalk> cr = new CropRow<>();
 
-        assertTrue(t.harvest(cs));
+        assertTrue(t.harvest(cr));
 
     }
     // - test for harvesting TomatoPlant
@@ -407,7 +409,7 @@ public class TuesdayTest {
         TomatoPlant tp = new TomatoPlant();
         CropRow<TomatoPlant> cr = new CropRow<>();
 
-        assertTrue(t.harvest(tp));
+        assertTrue(t.harvest(cr));
     }
     // - test for harvesting PotatoPlant
     @Test
@@ -416,18 +418,18 @@ public class TuesdayTest {
         PotatoPlant plant = new PotatoPlant();
         CropRow<PotatoPlant> cr = new CropRow<>();
 
-        assertTrue(t.harvest(plant));
+        assertTrue(t.harvest(cr));
     }
 // - Test what happens when the Tractor harvest()s a Crop in a CropRow
     @Test
     public void tractorHarvestCropInCropRow() {
         Tractor t = new Tractor();
-        Crop c = new Crop();
+        Crop c = new Crop(EarCorn::new) {};
         CropRow<Crop> cr = new CropRow<>();
-        croprow.addcrop(crop);
+        cr.add(c);
 
-        assertTrue(t.harvest(c));
-        assertTrue(c.hasBeenHarvested());
+        assertTrue(t.harvest(cr));
+        assertTrue(c.getHarvestedFlag());
     }
 
     @Test
@@ -456,7 +458,17 @@ public class TuesdayTest {
 
     @Test
     public void testAnimalIsNoiseMaker() {
-        Animal a = new Animal();
+        Animal a = new Animal() {
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+
+            @Override
+            public <T extends Edible> boolean eat(T edible) {
+                return false;
+            }
+        };
         assertTrue(a instanceof NoiseMaker);
     }
 
@@ -480,13 +492,43 @@ public class TuesdayTest {
 
     @Test
     public void testFarmVehicleIsNoiseMaker() {
-        FarmVehicle fv = new FarmVehicle();
+        FarmVehicle fv = new FarmVehicle() {
+            @Override
+            public <T extends Rideable> boolean setRider() {
+                return false;
+            }
+
+            @Override
+            public <T extends Rideable> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         assertTrue(fv instanceof NoiseMaker);
     }
 
     @Test
     public void testVehicleIsNoiseMaker() {
-        Vehicle v = new Vehicle();
+        Vehicle v = new Vehicle() {
+            @Override
+            public <T extends Rideable> boolean setRider() {
+                return false;
+            }
+
+            @Override
+            public <T extends Rideable> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         assertTrue(v instanceof NoiseMaker);
     }
 

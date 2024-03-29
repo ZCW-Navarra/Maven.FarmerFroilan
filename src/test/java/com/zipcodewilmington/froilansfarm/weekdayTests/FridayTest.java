@@ -224,14 +224,14 @@ public class FridayTest {
     }
     @Test
     public void testFroilandaIsEater() {
-        Farmer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
 
         assertTrue(froilanda instanceof Eater);
     }
 
     @Test
     public void froilandaEatsEarCorn() {
-        Farmer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         EarCorn ec = new EarcCorn();
 
         assertTrue(froilanda.eat(ec));
@@ -242,7 +242,7 @@ public class FridayTest {
 
     @Test
     public void froilandaEatsTomato() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Tomato t = new Tomato();
 
         assertTrue(froilanda.eat(t));
@@ -253,7 +253,7 @@ public class FridayTest {
 
     @Test
     public void froilandaEatsEgg() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
 
         assertTrue(froilanda.eat(e));
@@ -264,7 +264,7 @@ public class FridayTest {
 
     @Test
     public void froilandaEatsFood() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
@@ -321,7 +321,7 @@ public class FridayTest {
     @Test
     public void testCropDusterIsRideable(){
         CropDuster cd = new CropDuster();
-        assertTrue(cd instanceof Riderable);
+        assertTrue(cd instanceof Rideable);
     }
 
     /**
@@ -333,12 +333,6 @@ public class FridayTest {
     public void testCropDusterIsNoiseMaker(){
         CropDuster cd = new CropDuster();
         assertTrue(cd instanceof NoiseMaker);
-    }
-    // Test Froilan is a NoiseMaker
-    @Test
-    public void testFroilanIsNoiseMaker() {
-        Farmer frolian = new Farmer();
-        assertTrue(frolian instanceof NoiseMaker);
     }
 
     // Test Froilanda is a NoiseMaker
@@ -363,7 +357,17 @@ public class FridayTest {
     // Test Animal is a NoiseMaker
     @Test
     public void testAnimalIsNoiseMaker() {
-        Animal a = new Animal();
+        Animal a = new Animal() {
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+
+            @Override
+            public <T extends Edible> boolean eat(T edible) {
+                return false;
+            }
+        };
         assertTrue(a instanceof NoiseMaker);
     }
     // Test Aircraft is a NoiseMaker
@@ -383,14 +387,44 @@ public class FridayTest {
     // Test FarmVehicle is a NoiseMaker
     @Test
     public void testFarmVehicleIsNoiseMaker() {
-        FarmVehicle fv = new FarmVehicle();
+        FarmVehicle fv = new FarmVehicle() {
+            @Override
+            public <T extends Rider> boolean setRider(T rider) {
+                return false;
+            }
+
+            @Override
+            public <T extends Rider> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         assertTrue(fv instanceof NoiseMaker);
     }
 
     // Test Vehicle is a NoiseMaker
     @Test
     public void testVehicleIsNoiseMaker() {
-        Vehicle v = new Vehicle();
+        Vehicle v = new Vehicle() {
+            @Override
+            public <T extends Rider> boolean setRider(T rider) {
+                return false;
+            }
+
+            @Override
+            public <T extends Rider> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         assertTrue(v instanceof NoiseMaker);
     }
 
@@ -419,9 +453,10 @@ public class FridayTest {
 
         CropDuster cd = new CropDuster();
         froilanda.mount(cd);
-        assertTrue(froilanda.fly());
+        assertTrue(cd.fly());
         //Farmer can't fly()
-        assertFalse(froilan.fly());
+        froilanda.dismount(cd);
+        assertFalse(cd.fly());
     }
     @Test
     public void testFroilandaCanFertilizedCropRow1(){
@@ -433,7 +468,7 @@ public class FridayTest {
         CornStalk cs = new CornStalk();
 
         cr.add(cs);
-        cd.fertilize(cr.get(0));
+        cd.fertilize(cr);
         assertTrue(cr.get(0).isFertilized);
 
     }

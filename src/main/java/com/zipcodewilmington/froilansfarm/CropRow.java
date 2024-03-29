@@ -1,8 +1,9 @@
 package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class CropRow<T extends Crop> {
+public class CropRow<T extends Crop> implements Iterable {
     ArrayList<T> crops;
 
     public CropRow() {
@@ -17,9 +18,6 @@ public class CropRow<T extends Crop> {
             return false;
         }
     }
-<<<<<<< HEAD
-} >>>>>>> 80098928e9ece17cb55071c4be3459b0e74fa1ff
-=======
 
     public boolean remove(T crop) {
         try {
@@ -37,5 +35,9 @@ public class CropRow<T extends Crop> {
     public T get(int index) {
         return crops.get(index);
     }
->>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
+
+    @Override
+    public Iterator<T> iterator() {
+        return crops.iterator();
+    }
 }

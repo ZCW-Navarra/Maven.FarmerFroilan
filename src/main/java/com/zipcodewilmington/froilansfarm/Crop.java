@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.function.Supplier;
 
-public abstract class Crop<YieldType extends Edible> extends Produce<YieldType addextends Edible> {
+public abstract class Crop<YieldType extends Edible> extends Produce<YieldType> {
     boolean hasBeenHarvested = false;
 
     public Crop(Supplier<YieldType> supp) {

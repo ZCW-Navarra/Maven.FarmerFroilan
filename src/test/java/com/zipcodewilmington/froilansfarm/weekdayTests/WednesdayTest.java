@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
+import com.zipcodewilmington.froilansfarm.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -147,38 +148,6 @@ public class WednesdayTest {
         assertTrue(froilan instanceof Eater);
     }
 
-    // - test that Tomato is a Tomato
-    @Test
-    public void testTomatoIsTomato() {
-        Tomato t = new Tomato();
-
-        assertTrue(t instanceof Tomato);
-    }
-
-    // - test that Tomato is an Edible
-    @Test
-    public void testTomatoIsEdible() {
-        Tomato t = new Tomato();
-
-        assertTrue(t instanceof Edible);
-    }
-
-    // - test that Egg is an Egg
-    @Test
-    public void testEggIsEgg() {
-        Egg e = new Egg();
-
-        assertTrue(e instanceof Egg);
-    }
-
-    // - test that Egg is an Edible
-    @Test
-    public void testEggIsEdible() {
-        Egg e = new Egg();
-
-        assertTrue(e instanceof Edible);
-    }
-
     // - Test that Froilan can eat() 1 EarCorn object
     @Test
     public void testFroilanEatCorn() {
@@ -311,13 +280,13 @@ public class WednesdayTest {
 
     // - test that CropRow holds Crop
     @Test
-    public <T extends Crop> void testCropRowHoldsCrop() {
-        CropRow<T extends Crop> cr = new CropRow<>();
+    public void testCropRowHoldsCrop() {
+        CropRow<Crop> cr = new CropRow<>();
         // You can instantiate an abstract class by doing the following:
         // new AbstractClassName() {}
-        cr.add(new Crop() {});
+        cr.add(new Crop(EarCorn::new) {});
 
-        assertTrue(cr instanceof CropRow<T>);
+        assertTrue(cr instanceof CropRow);
         assertTrue(cr.get(0) instanceof Crop);
     }
 
@@ -467,16 +436,16 @@ public class WednesdayTest {
     @Test
     public void testChickensCanYeildEdibleEggs() {
         Chicken c = new Chicken();
-        EdibleEgg result = c.yeild();
-        assertTrue(result instanceof EdibleEgg);
+        Egg result = c.yield();
+        assertTrue(result instanceof Egg);
     }
 
     // Test chicken eggs can be fertilized
     @Test
     public void testChickenEdibleEggsCanBeFertilized() {
         Chicken c = new Chicken();
-        EdibleEgg result = c.yeild();
-        assertTrue(result.isFertilized);
+
+        assertTrue(c.getFertilizedFlag());
     }
 
 }

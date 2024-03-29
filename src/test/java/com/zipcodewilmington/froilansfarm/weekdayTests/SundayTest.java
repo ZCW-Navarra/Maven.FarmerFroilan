@@ -450,75 +450,6 @@ public class SundayTest {
         assertTrue(frolian instanceof NoiseMaker);
     }
 
-    // Test Froilanda is a NoiseMaker
-    @Test
-    public void testFroilandaIsNoiseMaker() {
-        Pilot frolianda = new Pilot();
-        assertTrue(frolianda instanceof NoiseMaker);
-    }
-
-    // Test Chicken is a NoiseMaker
-    @Test
-    public void testChickenIsNoiseMaker() {
-        Chicken c = new Chicken();
-        assertTrue(c instanceof NoiseMaker);
-    }
-
-    // Test Horse is a NoiseMaker
-    @Test
-    public void testHorseIsNoiseMaker() {
-        Horse h = new Horse();
-        assertTrue(h instanceof NoiseMaker);
-    }
-
-    // Test Animal is a NoiseMaker
-    @Test
-    public void testAnimalIsNoiseMaker() {
-        Animal a = new Animal();
-        assertTrue(a instanceof NoiseMaker);
-    }
-
-    // Test CropDuster is a NoiseMaker
-    @Test
-    public void testCropDusterIsNoiseMaker() {
-        CropDuster cd = new CropDuster();
-        assertTrue(cd instanceof NoiseMaker);
-    }
-
-    // Test Aircraft is a NoiseMaker
-    @Test
-    public void testAircraftIsNoiseMaker() {
-        Aircraft a = new Aircraft();
-        assertTrue(a instanceof NoiseMaker);
-    }
-
-    // Test Tractor is a NoiseMaker
-    @Test
-    public void testTractorIsNoiseMaker() {
-        Tractor t = new Tractor();
-        assertTrue(t instanceof NoiseMaker);
-    }
-
-    // Test FarmVehicle is a NoiseMaker
-    @Test
-    public void testFarmVehicleIsNoiseMaker() {
-        FarmVehicle fv = new FarmVehicle();
-        assertTrue(fv instanceof NoiseMaker);
-    }
-
-    // Test Vehicle is a NoiseMaker
-    @Test
-    public void testVehicleIsNoiseMaker() {
-        Vehicle v = new Vehicle();
-        assertTrue(v instanceof NoiseMaker);
-    }
-
-    @Test
-    public void testFroilanIsNoiseMaker() {
-        Farmer frolian = new Farmer();
-        assertTrue(frolian instanceof NoiseMaker);
-    }
-
     @Test
     public void testFroilandaIsNoiseMaker() {
         Pilot frolianda = new Pilot();
@@ -539,7 +470,17 @@ public class SundayTest {
 
     @Test
     public void testAnimalIsNoiseMaker() {
-        Animal a = new Animal();
+        Animal a = new Animal() {
+            @Override
+            public String makeNoise() {
+                return "a";
+            }
+
+            @Override
+            public <T extends Edible> boolean eat(T edible) {
+                return true;
+            }
+        };
         assertTrue(a instanceof NoiseMaker);
     }
 
@@ -563,13 +504,43 @@ public class SundayTest {
 
     @Test
     public void testFarmVehicleIsNoiseMaker() {
-        FarmVehicle fv = new FarmVehicle();
+        FarmVehicle fv = new FarmVehicle() {
+            @Override
+            public <T extends Rideable> boolean setRider() {
+                return false;
+            }
+
+            @Override
+            public <T extends Rideable> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return "a";
+            }
+        };
         assertTrue(fv instanceof NoiseMaker);
     }
 
     @Test
     public void testVehicleIsNoiseMaker() {
-        Vehicle v = new Vehicle();
+        Vehicle v = new Vehicle() {
+            @Override
+            public <T extends Rideable> boolean setRider() {
+                return false;
+            }
+
+            @Override
+            public <T extends Rideable> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         assertTrue(v instanceof NoiseMaker);
     }
 

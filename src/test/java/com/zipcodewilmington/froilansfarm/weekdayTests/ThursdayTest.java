@@ -163,42 +163,6 @@ public class ThursdayTest {
         assertTrue(froilan instanceof Eater);
     }
 
-    // - test that Tomato is a Tomato
-
-    @Test
-    public void testTomatoIsTomato() {
-        Tomato t = new Tomato();
-
-        assertTrue(t instanceof Tomato);
-    }
-
-    // - test that Tomato is an Edible
-
-    @Test
-    public void testTomatoIsEdible() {
-        Tomato t = new Tomato();
-
-        assertTrue(t instanceof Edible);
-    }
-
-    // - test that Egg is an Egg
-
-    @Test
-    public void testEggIsEgg() {
-        Egg e = new Egg();
-
-        assertTrue(e instanceof Egg);
-    }
-
-    // - test that Egg is an Edible
-
-    @Test
-    public void testEggIsEdible() {
-        Egg e = new Egg();
-
-        assertTrue(e instanceof Edible);
-    }
-
     // - Test that Froilan can eat() 1 EarCorn object
 
     @Test
@@ -430,7 +394,7 @@ public class ThursdayTest {
 
         for(CropRow row : f){
             cd.fertilize(row);
-            for (Crop c : row.getCrops()) {
+            for (Crop c : row) {
                 assertTrue(c.getFertilizedFlag());
             }
         }
@@ -480,14 +444,20 @@ public class ThursdayTest {
     // Test Animal is a NoiseMaker
     @Test
     public void testAnimalIsNoiseMaker() {
-<<<<<<< HEAD
-        Animal a = new Animal();
-=======
-        Animal a = new Animal() {};
+        Animal a = new Animal() {
+            @Override
+            public String makeNoise() {
+                return "a";
+            }
+
+            @Override
+            public <T extends Edible> boolean eat(T edible) {
+                return false;
+            }
+        };
         String expected = "a";
 
         assertEquals(expected, a.makeNoise());
->>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
         assertTrue(a instanceof NoiseMaker);
     }
 

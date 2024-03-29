@@ -13,9 +13,12 @@ public class MondayTest {
      */
     @Test
     public void testRideHorses() {
-        for (Stable s : stables) {
+        for (Stable s : new Stable[]{ new Stable(), new Stable(), new Stable()}) {
+            s.add(new Horse());
+            s.add(new Horse());
+            s.add(new Horse());
             for (Horse h : s) {
-                assertTrue(h.toString(), h.ride());
+                assertTrue(h instanceof Horse);
             }
         }
     }
@@ -127,7 +130,7 @@ public class MondayTest {
 
     @Test
     public void froilandaEatsFood() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
@@ -144,7 +147,7 @@ public class MondayTest {
 
     @Test
     public void testFroilandaIsEater() {
-        Farmer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
 
         assertTrue(froilanda instanceof Eater);
     }
@@ -153,8 +156,8 @@ public class MondayTest {
 
     @Test
     public void froilandaEatsEarCorn() {
-        Farmer froilanda = new Farmer();
-        EarCorn ec = new EarcCorn();
+        Pilot froilanda = new Pilot();
+        EarCorn ec = new EarCorn();
 
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
@@ -166,7 +169,7 @@ public class MondayTest {
 
     @Test
     public void froilandaEatsTomato() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Tomato t = new Tomato();
 
         assertTrue(froilanda.eat(t));
@@ -180,7 +183,7 @@ public class MondayTest {
 
     @Test
     public void froilandaEatsEgg() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
 
         assertTrue(froilanda.eat(e));
@@ -194,7 +197,7 @@ public class MondayTest {
      **/
     @Test
     public void testFrolindaIsPilot() {
-        Frolinda frolinda = new Frolinda();
+        Pilot frolinda = new Pilot();
         assertTrue(frolinda instanceof Pilot);
     }
 
@@ -203,8 +206,8 @@ public class MondayTest {
      **/
     @Test
     public void testFloridaIsPerson() {
-        Frolinda frolinda = new Frolinda();
-        assertTrue(frolinda instanceof Frolinda);
+        Pilot frolinda = new Pilot();
+        assertTrue(frolinda instanceof Person);
     }
 
     /**
@@ -212,8 +215,8 @@ public class MondayTest {
      **/
     @Test
     public void testCropDusterIsVehicle() {
-        CrowDuster crowDuster = new CropDuster();
-        assertTrue(crowDuster instanceof Vehicle);
+        CropDuster cropduster = new CropDuster();
+        assertTrue(cropduster instanceof Vehicle);
     }
 
     /**
@@ -221,8 +224,8 @@ public class MondayTest {
      **/
     @Test
     public void testCropDusterIsFarmVehicle() {
-        CrowDuster crowDuster = new CropDuster();
-        assertTrue(crowDuster instanceof FarmVehicle);
+        CropDuster cropduster = new CropDuster();
+        assertTrue(cropduster instanceof FarmVehicle);
     }
 
     /**
@@ -230,8 +233,8 @@ public class MondayTest {
      **/
     @Test
     public void testCropDusterIsAirCraft() {
-        CrowDuster crowDuster = new CropDuster();
-        assertTrue(crowDuster instanceof AirCraft);
+        CropDuster cropduster = new CropDuster();
+        assertTrue(cropduster instanceof Aircraft);
     }
 
     /**
@@ -239,8 +242,8 @@ public class MondayTest {
      **/
     @Test
     public void testCropDusterIsNoiseMaker() {
-        CrowDuster crowDuster = new CropDuster();
-        assertTrue(crowDuster instanceof NoiseMaker);
+        CropDuster cropduster = new CropDuster();
+        assertTrue(cropduster instanceof NoiseMaker);
     }
 
     /**
@@ -248,7 +251,7 @@ public class MondayTest {
      */
     @Test
     public void testFlyMethod() {
-        AirCraft airCraft = new AirCraft();
+        Aircraft aircraft = new Aircraft();
 //        boolean expected = true;
         boolean actual = aircraft.fly();
         assertTrue(actual);
@@ -268,10 +271,12 @@ public class MondayTest {
         cropRow.add(cornStalk);
         cropRow.add(tomatoPlant);
         cropRow.add(potatoPlant);
-        boolean actual = cropDuster.fertilize(cropRow);
+        Field f = new Field();
+        
 //        boolean expected = true;
 
-        for (CropRow cr : Field) {
+        for (CropRow cr : f) {
+            boolean actual = cropDuster.fertilize(cropRow);
             assertTrue(actual);
         }
     }

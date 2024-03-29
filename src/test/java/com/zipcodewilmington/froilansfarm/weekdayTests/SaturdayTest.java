@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm.weekdayTests;
 <<<<<<< HEAD
 import com.zipcodewilmington.froilansfarm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farmer;
+import com.zipcodewilmington.froilansfarm.Horse;
 import com.zipcodewilmington.froilansfarm.Person;
 import org.junit.Test;
 
