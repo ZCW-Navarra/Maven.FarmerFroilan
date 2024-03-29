@@ -87,7 +87,8 @@ public class SundayTest extends AbstractWeekdayTest {
         froilan.mount(h);
 
         assertEquals(froilan, h.getRider());
-        //
+        // the same as this
+        
 //        if (Objects.equals(froilan, h.getRider())) {
 //            assertTrue(true);
 //        } else {
@@ -378,5 +379,5 @@ public class SundayTest extends AbstractWeekdayTest {
     }
 
     // -- For each of the three crop types that we do
-    // -- CornStalk, TomatoPlant, PotatoPlant are the three crop types
+
 }
