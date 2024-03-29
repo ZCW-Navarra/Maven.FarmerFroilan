@@ -85,7 +85,8 @@ public class SundayTest extends AbstractWeekdayTest {
         froilan.mount(h);
 
         assertEquals(froilan, h.getRider());
-        //
+        // the same as this
+
 //        if (Objects.equals(froilan, h.getRider())) {
 //            assertTrue(true);
 //        } else {
@@ -238,13 +239,78 @@ public class SundayTest extends AbstractWeekdayTest {
         assertEquals(5, froilan.getNumTimesEaten());
     }
 
-    // Froilanda eats 2 EarCorn, 1 Tomato, and 2 Egg
+
     // - test that Froilanda is an Eater
+    @Test
+    public void testFroilandaIsEater() {
+       Farmer froilanda = new Farmer();
+
+        assertTrue(froilanda instanceof Eater);
+    }
+
     // - test that Froilanda can eat() 2 EarCorn objects
+
+    @Test
+    public void froilandaEatsEarCorn() {
+        Farmer froilanda = new Farmer();
+        EarCorn ec = new EarcCorn();
+
+        assertTrue(froilanda.eat(ec));
+        froilanda.eat(ec);
+
+        assertEquals(2, froilanda.getNumTimesEaten(2));
+    }
+
     // - test that Froilanda can eat() 1 Tomato object
+
+    @Test
+    public void froilandaEatsTomato() {
+        Famer froilanda = new Farmer();
+        Tomato t = new Tomato();
+
+        assertTrue(froilanda.eat(t));
+        froilanda.eat(t);
+
+        assertEquals(1, froilanda.getNumTimesEaten(1));
+    }
+
+
     // - test that Froilanda can eat() 2 Egg objects
 
+    @Test
+    public void froilandaEatsEgg() {
+        Famer froilanda = new Farmer();
+        Egg e = new Egg();
+
+        assertTrue(froilanda.eat(e));
+        froilanda.eat(e);
+
+        assertEquals(2, froilanda.getNumTimesEaten(2));
+    }
+
+
+    // - test that Froilanda eats 2 EarCorn, 1 Tomato, and 2 Egg
+    @Test
+    public void froilandaEatsFood() {
+        Famer froilanda = new Farmer();
+        Egg e = new Egg();
+        Tomato t = new Tomato();
+        EarCorn ec = new EarCorn();
+
+        froilanda.eat(Egg, 2);
+        froilanda.eat(Tomato, 1);
+        froilanda.eat(EarCorn, 2);
+
+        assertEquals(2, froilanda.getNumTimesEaten(e));
+        assertEquals(1, froilanda.getNumTimesEaten(t));
+        assertEquals(2, froilanda.getNumTimesEaten(ec));
+        }
+
+    }
+
     // Sunday, Froilan plants 3 different types of Crop in his 1st, 2nd, and 3rd CropRow
+
+
     // - test that Froilan is a Botanist
 
     @Test
@@ -376,5 +442,5 @@ public class SundayTest extends AbstractWeekdayTest {
     }
 
     // -- For each of the three crop types that we do
-    // -- CornStalk, TomatoPlant, PotatoPlant are the three crop types
+
 }
