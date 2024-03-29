@@ -61,7 +61,7 @@ public class SundayTest extends AbstractWeekdayTest {
     @Test
     public void testFroilanAndFroilandaCanRide() {
         Farmer froilan = new Farmer();
-        Pilot froilanda = new Pilot();
+
         Horse h = new Horse();
 
         assertTrue(froilan.mount(h));
@@ -444,3 +444,4 @@ public class SundayTest extends AbstractWeekdayTest {
     // -- For each of the three crop types that we do
 
 }
+
