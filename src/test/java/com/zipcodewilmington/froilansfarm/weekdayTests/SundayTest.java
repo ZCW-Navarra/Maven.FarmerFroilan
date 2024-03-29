@@ -505,13 +505,14 @@ public class SundayTest {
     @Test
     public void testFarmVehicleIsNoiseMaker() {
         FarmVehicle fv = new FarmVehicle() {
+
             @Override
-            public <T extends Rideable> boolean setRider() {
+            public <T extends Rider> boolean setRider(T rider) {
                 return false;
             }
 
             @Override
-            public <T extends Rideable> T getRider() {
+            public <T extends Rider> T getRider() {
                 return null;
             }
 
@@ -526,13 +527,14 @@ public class SundayTest {
     @Test
     public void testVehicleIsNoiseMaker() {
         Vehicle v = new Vehicle() {
+
             @Override
-            public <T extends Rideable> boolean setRider() {
+            public <T extends Rider> boolean setRider(T rider) {
                 return false;
             }
 
             @Override
-            public <T extends Rideable> T getRider() {
+            public <T extends Rider> T getRider() {
                 return null;
             }
 

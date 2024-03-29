@@ -2,7 +2,8 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.Objects;
 
-public class Horse implements Rideable {
+public class Horse implements Rideable, Animal {
+    Integer numTimesEaten = 0;
     Rider rider;
     @Override
     public <T extends Rider> boolean setRider(T rider) {
@@ -18,5 +19,21 @@ public class Horse implements Rideable {
     @Override
     public <T extends Rider> T getRider() {
         return (T) rider;
+    }
+
+    @Override
+    public <T extends Edible> boolean eat(T edible) {
+        this.numTimesEaten++;
+        return true;
+    }
+
+    @Override
+    public int getNumTimesEaten() {
+        return this.numTimesEaten;
+    }
+
+    @Override
+    public String makeNoise() {
+        return "a";
     }
 }
