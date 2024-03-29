@@ -1,8 +1,8 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
 
+import com.zipcodewilmington.froilansfarm.*;
 import org.junit.Test;
-import java.util.Objects;
 import static org.junit.Assert.*;
 
 public class SundayTest extends AbstractWeekdayTest {
@@ -265,7 +265,7 @@ public class SundayTest extends AbstractWeekdayTest {
 
     @Test
     public void froilandaEatsTomato() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Tomato t = new Tomato();
 
         assertTrue(froilanda.eat(t));
@@ -279,7 +279,7 @@ public class SundayTest extends AbstractWeekdayTest {
 
     @Test
     public void froilandaEatsEgg() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
 
         assertTrue(froilanda.eat(e));
@@ -292,7 +292,7 @@ public class SundayTest extends AbstractWeekdayTest {
     // - test that Froilanda eats 2 EarCorn, 1 Tomato, and 2 Egg
     @Test
     public void froilandaEatsFood() {
-        Famer froilanda = new Farmer();
+        Pilot froilanda = new Pilot();
         Egg e = new Egg();
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
@@ -338,7 +338,7 @@ public class SundayTest extends AbstractWeekdayTest {
         // new AbstractClassName() {}
         cr.add(new Crop() {});
 
-        assertTrue(cr instanceof CropRow<T>);
+        assertTrue(cr instanceof CropRow);
         assertTrue(cr.get(0) instanceof Crop);
     }
 
