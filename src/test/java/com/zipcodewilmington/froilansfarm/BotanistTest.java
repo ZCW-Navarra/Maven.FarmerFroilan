@@ -37,6 +37,6 @@ public class BotanistTest {
     public void testPlant() {
         Botanist b = new Botanist();
 
-        assertTrue(b.plant(new Corn(), new CropRow()));
+        assertTrue(b.plant(new CornStalk(), new CropRow()));
     }
 }

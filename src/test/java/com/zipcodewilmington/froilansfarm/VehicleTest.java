@@ -7,14 +7,29 @@ public class VehicleTest {
 
     @Test
     public void aircraftInstanceTest(){
-        AirCraft airCraft = new AirCraft();
+        Aircraft airCraft = new Aircraft();
         Assert.assertTrue(airCraft instanceof Vehicle);
     }
 
 
     @Test
-    public void aircraftInstanceTest(){
-        FarmVehicle farmVehicle = new FarmVehicle();
+    public void farmVehicleInstanceTest(){
+        FarmVehicle farmVehicle = new FarmVehicle() {
+            @Override
+            public <T extends Rider> boolean setRider(T rider) {
+                return false;
+            }
+
+            @Override
+            public <T extends Rider> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         Assert.assertTrue(farmVehicle instanceof Vehicle);
     }
 

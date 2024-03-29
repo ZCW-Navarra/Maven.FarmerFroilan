@@ -30,10 +30,10 @@ public class CornStalkTest {
     public void testHasBeenHarvested() {
         CornStalk c = new CornStalk();
 
-        assertFalse(c.getHarvestFlag());
+        assertFalse(c.getHarvestedFlag());
 
-        c.setHarvestFlag(true);
+        c.setHarvestedFlag(true);
 
-        assertTrue(c.getHarvestFlag());
+        assertTrue(c.getHarvestedFlag());
     }
 }

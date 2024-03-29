@@ -8,7 +8,7 @@ public class EdibleTest {
 
     @Test
     public void tomatoInstanceTest(){
-        Tomate tomate = new Tomate();
+        Tomato tomate = new Tomato();
         Assert.assertTrue(tomate instanceof Edible);
     }
 
