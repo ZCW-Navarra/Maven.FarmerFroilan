@@ -10,4 +10,16 @@ public class Farm {
     public Farm() {
 
     }
+
+    public Stable[] getStables() {
+        return stables.toArray(new Stable[0]);
+    }
+
+    public ChickenCoop[] getCoops() {
+        return coops.toArray(new ChickenCoop[0]);
+    }
+
+    public FarmHouse getHouse() {
+        return house;
+    }
 }

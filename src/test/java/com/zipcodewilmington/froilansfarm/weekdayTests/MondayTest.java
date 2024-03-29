@@ -26,24 +26,26 @@ public class MondayTest {
     /**
      * Feed each horse
      */
-//    @Test
-//    public void testFeedHorses() {
-//
-//        for (Stable s : stables) {
-//            for (Horse h : s) {
-//                int expectedTimesFed = 0;
-//                assertEquals(h + " pre-eat failure", expectedTimesFed, h.getNumTimesEaten());
-//
-//                h.eat(new EarCorn());
-//                h.eat(new EarCorn());
-//                h.eat(new EarCorn());
-//
-//                expectedTimesFed = 3;
-//
-//                assertEquals(h + " post-eat failure", expectedTimesFed, h.getNumTimesEaten());
-//            }
-//        }
-//    }
+    @Test
+    public void testFeedHorses() {
+        Farm farm = new Farm();
+        Stable[] stables = farm.getStables();
+
+        for (Stable s : stables) {
+            for (Horse h : s) {
+                int expectedTimesFed = 0;
+                assertEquals(h + " pre-eat failure", expectedTimesFed, h.getNumTimesEaten());
+
+                h.eat(new EarCorn());
+                h.eat(new EarCorn());
+                h.eat(new EarCorn());
+
+                expectedTimesFed = 3;
+
+                assertEquals(h + " post-eat failure", expectedTimesFed, h.getNumTimesEaten());
+            }
+        }
+    }
 
     @Test
     public void testHorseIsAHorse() {
