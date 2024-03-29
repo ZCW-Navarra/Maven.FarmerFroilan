@@ -1,12 +1,11 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
 import com.zipcodewilmington.froilansfarm.*;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MondayTest extends AbstractWeekdayTest {
+public class MondayTest {
 
 
     /**
@@ -196,7 +195,7 @@ public class MondayTest extends AbstractWeekdayTest {
     @Test
     public void testFrolindaIsPilot() {
         Frolinda frolinda = new Frolinda();
-        Assert.assertTrue(frolinda instanceof Pilot);
+        assertTrue(frolinda instanceof Pilot);
     }
 
     /**
@@ -205,7 +204,7 @@ public class MondayTest extends AbstractWeekdayTest {
     @Test
     public void testFloridaIsPerson() {
         Frolinda frolinda = new Frolinda();
-        Assert.assertTrue(frolinda instanceof Frolinda);
+        assertTrue(frolinda instanceof Frolinda);
     }
 
     /**
@@ -214,7 +213,7 @@ public class MondayTest extends AbstractWeekdayTest {
     @Test
     public void testCropDusterIsVehicle() {
         CrowDuster crowDuster = new CropDuster();
-        Assert.assertTrue(crowDuster instanceof Vehicle);
+        assertTrue(crowDuster instanceof Vehicle);
     }
 
     /**
@@ -223,7 +222,7 @@ public class MondayTest extends AbstractWeekdayTest {
     @Test
     public void testCropDusterIsFarmVehicle() {
         CrowDuster crowDuster = new CropDuster();
-        Assert.assertTrue(crowDuster instanceof FarmVehicle);
+        assertTrue(crowDuster instanceof FarmVehicle);
     }
 
     /**
@@ -232,7 +231,7 @@ public class MondayTest extends AbstractWeekdayTest {
     @Test
     public void testCropDusterIsAirCraft() {
         CrowDuster crowDuster = new CropDuster();
-        Assert.assertTrue(crowDuster instanceof AirCraft);
+        assertTrue(crowDuster instanceof AirCraft);
     }
 
     /**
@@ -241,7 +240,7 @@ public class MondayTest extends AbstractWeekdayTest {
     @Test
     public void testCropDusterIsNoiseMaker() {
         CrowDuster crowDuster = new CropDuster();
-        Assert.assertTrue(crowDuster instanceof NoiseMaker);
+        assertTrue(crowDuster instanceof NoiseMaker);
     }
 
     /**
@@ -252,7 +251,7 @@ public class MondayTest extends AbstractWeekdayTest {
         AirCraft airCraft = new AirCraft();
 //        boolean expected = true;
         boolean actual = aircraft.fly();
-        Assert.assertTrue(actual);
+        assertTrue(actual);
     }
 
     /**
@@ -273,7 +272,7 @@ public class MondayTest extends AbstractWeekdayTest {
 //        boolean expected = true;
 
         for (CropRow cr : Field) {
-            Assert.assertTrue(actual);
+            assertTrue(actual);
         }
     }
 

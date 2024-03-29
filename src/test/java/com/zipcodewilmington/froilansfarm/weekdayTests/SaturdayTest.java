@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
+<<<<<<< HEAD
 import com.zipcodewilmington.froilansfarm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farmer;
 import com.zipcodewilmington.froilansfarm.Person;
@@ -449,4 +450,7 @@ public class SaturdayTest extends AbstractWeekdayTest {
     // - test that Horse goes in Stable
     // - test that Stable, ChickenCoop, and Person goes in Farm
 
+=======
+public class SaturdayTest {
+>>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
 }

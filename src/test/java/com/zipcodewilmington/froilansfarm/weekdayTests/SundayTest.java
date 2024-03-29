@@ -5,7 +5,7 @@ import com.zipcodewilmington.froilansfarm.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class SundayTest extends AbstractWeekdayTest {
+public class SundayTest {
     // Riding each Horse in each Stable
     // - test that each Horse is a Horse
 
@@ -61,6 +61,7 @@ public class SundayTest extends AbstractWeekdayTest {
     @Test
     public void testFroilanAndFroilandaCanRide() {
         Farmer froilan = new Farmer();
+        Pilot froilanda = new Pilot();
 
         Horse h = new Horse();
 
@@ -243,17 +244,17 @@ public class SundayTest extends AbstractWeekdayTest {
     // - test that Froilanda is an Eater
     @Test
     public void testFroilandaIsEater() {
-       Farmer froilanda = new Farmer();
+       Pilot froilanda = new Pilot();
 
-        assertTrue(froilanda instanceof Eater);
+       assertTrue(froilanda instanceof Eater);
     }
 
     // - test that Froilanda can eat() 2 EarCorn objects
 
     @Test
     public void froilandaEatsEarCorn() {
-        Farmer froilanda = new Farmer();
-        EarCorn ec = new EarcCorn();
+        Pilot froilanda = new Pilot();
+        EarCorn ec = new EarCorn();
 
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
@@ -297,9 +298,11 @@ public class SundayTest extends AbstractWeekdayTest {
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
 
-        froilanda.eat(Egg, 2);
-        froilanda.eat(Tomato, 1);
-        froilanda.eat(EarCorn, 2);
+        froilanda.eat(e);
+        froilanda.eat(e);
+        froilanda.eat(t);
+        froilanda.eat(ec);
+        froilanda.eat(ec);
 
         assertEquals(2, froilanda.getNumTimesEaten(e));
         assertEquals(1, froilanda.getNumTimesEaten(t));
@@ -332,11 +335,11 @@ public class SundayTest extends AbstractWeekdayTest {
     // - test that CropRow holds Crop
 
     @Test
-    public <T extends Crop> void testCropRowHoldsCrop() {
-        CropRow<T extends Crop> cr = new CropRow<>();
+    public void testCropRowHoldsCrop() {
+        CropRow<Crop> cr = new CropRow<>();
         // You can instantiate an abstract class by doing the following:
         // new AbstractClassName() {}
-        cr.add(new Crop() {});
+        cr.add(new Crop(Egg::new) {});
 
         assertTrue(cr instanceof CropRow);
         assertTrue(cr.get(0) instanceof Crop);
@@ -573,4 +576,3 @@ public class SundayTest extends AbstractWeekdayTest {
     // -- For each of the three crop types that we do
 
 }
-

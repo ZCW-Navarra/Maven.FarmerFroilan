@@ -4,8 +4,7 @@ import com.zipcodewilmington.froilansfarm.Farmer;
 import org.junit.Test;
 
 import static  org.junit.Assert.*;
-public class TuesdayTest extends AbstractWeekdayTest {
-    // In addition to all the daily tasks (located in AbstractWeekdayTest.java)
+public class TuesdayTest {
 
     @Test
     public void testHorseIsAHorse() {
