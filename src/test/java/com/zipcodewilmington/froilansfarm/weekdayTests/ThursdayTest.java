@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
+import com.zipcodewilmington.froilansfarm.NoiseMaker;
 import org.junit.Test;
 import java.util.Objects;
 import static org.junit.Assert.*;
@@ -401,11 +402,11 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testFroilandaCanFlyCropDuster() {
         Pilot froilanda = new Pilot();
-        Farmer froilan = new Farmer();
         CropDuster cd = new CropDuster();
         froilanda.mount(cd);
-        assertTrue(froilanda.fly());        // ???
-        assertFalse(froilan.fly());         // ???
+        assertTrue(cd.fly());        // ???
+        froilanda.dismount(cd);
+        assertFalse(cd.fly());         // ???
     }
 
     // Test CropDuster can fertilize CropRows
@@ -415,6 +416,7 @@ public class ThursdayTest extends AbstractWeekdayTest {
         CropDuster cd = new CropDuster();
         froilanda.mount(cd);
 
+        Field f = new Field();
         CropRow<Crop> cr = new CropRow<>();
         CornStalk cs = new CornStalk();
         TomatoPlant tp = new TomatoPlant();
@@ -424,13 +426,14 @@ public class ThursdayTest extends AbstractWeekdayTest {
         cr.add(tp);
         cr.add(plant);
 
-        cd.fertilize(cr.get(0));
-        cd.fertilize(cr.get(1));
-        cd.fertilize(cr.get(2));
+        f.add(cr);
 
-        assertTrue(cr.get(0).isFertilized);
-        assertTrue(cr.get(1).isFertilized);
-        assertTrue(cr.get(2).isFertilized);
+        for(CropRow row : f){
+            cd.fertilize(row);
+            for (Crop c : row.getCrops()) {
+                assertTrue(c.getFertilizedFlag());
+            }
+        }
 
     }
 
@@ -438,13 +441,19 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testFroilanIsNoiseMaker() {
         Farmer frolian = new Farmer();
+        String expected = "a";
+
         assertTrue(frolian instanceof NoiseMaker);
+        assertEquals(expected, frolian.makeNoise());
     }
 
     // Test Froilanda is a NoiseMaker
     @Test
     public void testFroilandaIsNoiseMaker() {
         Pilot frolianda = new Pilot();
+        String expected = "a";
+
+        assertEquals(expected, frolianda.makeNoise());
         assertTrue(frolianda instanceof NoiseMaker);
     }
 
@@ -452,6 +461,9 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testChickenIsNoiseMaker() {
         Chicken c = new Chicken();
+        String expected = "a";
+
+        assertEquals(expected, c.makeNoise());
         assertTrue(c instanceof NoiseMaker);
     }
 
@@ -459,13 +471,19 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testHorseIsNoiseMaker() {
         Horse h = new Horse();
+        String expected = "a";
+
+        assertEquals(expected, h.makeNoise());
         assertTrue(h instanceof NoiseMaker);
     }
 
     // Test Animal is a NoiseMaker
     @Test
-    public void testAnimalIsNoiseMaker() {      //////////////////////////////////////////
-        Animal a = new Animal();
+    public void testAnimalIsNoiseMaker() {
+        Animal a = new Animal() {};
+        String expected = "a";
+
+        assertEquals(expected, a.makeNoise());
         assertTrue(a instanceof NoiseMaker);
     }
 
@@ -473,6 +491,9 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testCropDusterIsNoiseMaker() {
         CropDuster cd = new CropDuster();
+        String expected = "a";
+
+        assertEquals(expected, cd.makeNoise());
         assertTrue(cd instanceof NoiseMaker);
     }
 
@@ -480,6 +501,9 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testAircraftIsNoiseMaker() {
         Aircraft a = new Aircraft();
+        String expected = "a";
+
+        assertEquals(expected, a.makeNoise());
         assertTrue(a instanceof NoiseMaker);
     }
 
@@ -487,20 +511,29 @@ public class ThursdayTest extends AbstractWeekdayTest {
     @Test
     public void testTractorIsNoiseMaker() {
         Tractor t = new Tractor();
+        String expected = "a";
+
+        assertEquals(expected, t.makeNoise());
         assertTrue(t instanceof NoiseMaker);
     }
 
     // Test FarmVehicle is a NoiseMaker
     @Test
-    public void testFarmVehicleIsNoiseMaker() {     //////////////////////////////////////////
-        FarmVehicle fv = new FarmVehicle();
+    public void testFarmVehicleIsNoiseMaker() {
+        FarmVehicle fv = new FarmVehicle() {};
+        String expected = "a";
+
+        assertEquals(expected, fv.makeNoise());
         assertTrue(fv instanceof NoiseMaker);
     }
 
     // Test Vehicle is a NoiseMaker
     @Test
-    public void testVehicleIsNoiseMaker() {     //////////////////////////////////////////
-        Vehicle v = new Vehicle();
+    public void testVehicleIsNoiseMaker() {
+        Vehicle v = new Vehicle() {};
+        String expected = "a";
+
+        assertEquals(expected, v.makeNoise());
         assertTrue(v instanceof NoiseMaker);
     }
 }

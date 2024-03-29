@@ -304,9 +304,9 @@ public class SundayTest extends AbstractWeekdayTest {
         assertEquals(2, froilanda.getNumTimesEaten(e));
         assertEquals(1, froilanda.getNumTimesEaten(t));
         assertEquals(2, froilanda.getNumTimesEaten(ec));
-        }
-
     }
+
+
 
     // Sunday, Froilan plants 3 different types of Crop in his 1st, 2nd, and 3rd CropRow
 
