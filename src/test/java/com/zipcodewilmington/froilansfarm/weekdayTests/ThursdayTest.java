@@ -185,7 +185,7 @@ public class ThursdayTest {
         assertTrue(froilan.eat(t));
         froilan.eat(t);
 
-        assertEquals(2, froilan,getNumTimesEaten());
+        assertEquals(2, froilan.getNumTimesEaten());
     }
 
     // - Test that Froilan can eat() 5 Egg objects
@@ -270,7 +270,7 @@ public class ThursdayTest {
 
         assertTrue(froilanda.eat(t));
 
-        assertEquals(1, froilanda,getNumTimesEaten());
+        assertEquals(1, froilanda.getNumTimesEaten());
     }
 
     // - test that Froilanda can eat() 2 Egg objects
@@ -394,7 +394,7 @@ public class ThursdayTest {
 
         for(CropRow row : f){
             cd.fertilize(row);
-            for (Crop c : row) {
+            for (Crop c : row.getCrops()) {
                 assertTrue(c.getFertilizedFlag());
             }
         }
@@ -454,6 +454,11 @@ public class ThursdayTest {
             public <T extends Edible> boolean eat(T edible) {
                 return false;
             }
+
+            @Override
+            public int getNumTimesEaten() {
+                return 0;
+            }
         };
         String expected = "a";
 
@@ -494,28 +499,50 @@ public class ThursdayTest {
     // Test FarmVehicle is a NoiseMaker
     @Test
     public void testFarmVehicleIsNoiseMaker() {
-<<<<<<< HEAD
-        FarmVehicle fv = new FarmVehicle();
-=======
-        FarmVehicle fv = new FarmVehicle() {};
+        FarmVehicle fv = new FarmVehicle() {
+            @Override
+            public <T extends Rider> boolean setRider(T rider) {
+                return false;
+            }
+
+            @Override
+            public <T extends Rider> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         String expected = "a";
 
         assertEquals(expected, fv.makeNoise());
->>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
         assertTrue(fv instanceof NoiseMaker);
     }
 
     // Test Vehicle is a NoiseMaker
     @Test
     public void testVehicleIsNoiseMaker() {
-<<<<<<< HEAD
-        Vehicle v = new Vehicle();
-=======
-        Vehicle v = new Vehicle() {};
+        Vehicle v = new Vehicle() {
+            @Override
+            public <T extends Rider> boolean setRider(T rider) {
+                return false;
+            }
+
+            @Override
+            public <T extends Rider> T getRider() {
+                return null;
+            }
+
+            @Override
+            public String makeNoise() {
+                return null;
+            }
+        };
         String expected = "a";
 
         assertEquals(expected, v.makeNoise());
->>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
         assertTrue(v instanceof NoiseMaker);
     }
 }

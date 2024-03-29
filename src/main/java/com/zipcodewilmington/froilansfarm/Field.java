@@ -22,4 +22,8 @@ public class Field implements Iterable<CropRow>{
     public Iterator<CropRow> iterator() {
         return rows.iterator();
     }
+
+    public boolean contains(CropRow cropRow) {
+        return rows.contains(cropRow);
+    }
 }

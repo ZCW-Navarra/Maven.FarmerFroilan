@@ -168,7 +168,7 @@ public class TuesdayTest {
         assertTrue(froilan.eat(t));
         froilan.eat(t);
 
-        assertEquals(2, froilan, getNumTimesEaten());
+        assertEquals(2, froilan.getNumTimesEaten());
     }
 
     @Test
@@ -198,7 +198,7 @@ public class TuesdayTest {
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -209,7 +209,7 @@ public class TuesdayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten(1));
+        assertEquals(1, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -220,7 +220,7 @@ public class TuesdayTest {
         assertTrue(froilanda.eat(e));
         froilanda.eat(e);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -232,13 +232,14 @@ public class TuesdayTest {
 
         froilanda.eat(e);
         froilanda.eat(e);
-        froilanda.eat(t);
-        froilanda.eat(ec);
-        froilanda.eat(ec);
+        assertEquals(2, froilanda.getNumTimesEaten());
 
-        assertEquals(2, froilanda.getNumTimesEaten(e));
-        assertEquals(1, froilanda.getNumTimesEaten(t));
-        assertEquals(2, froilanda.getNumTimesEaten(ec));
+        froilanda.eat(t);
+        assertEquals(3, froilanda.getNumTimesEaten());
+
+        froilanda.eat(ec);
+        froilanda.eat(ec);
+        assertEquals(5, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -468,6 +469,11 @@ public class TuesdayTest {
             public <T extends Edible> boolean eat(T edible) {
                 return false;
             }
+
+            @Override
+            public int getNumTimesEaten() {
+                return 0;
+            }
         };
         assertTrue(a instanceof NoiseMaker);
     }
@@ -494,12 +500,12 @@ public class TuesdayTest {
     public void testFarmVehicleIsNoiseMaker() {
         FarmVehicle fv = new FarmVehicle() {
             @Override
-            public <T extends Rideable> boolean setRider() {
+            public <T extends Rider> boolean setRider(T rider) {
                 return false;
             }
 
             @Override
-            public <T extends Rideable> T getRider() {
+            public <T extends Rider> T getRider() {
                 return null;
             }
 
@@ -514,13 +520,14 @@ public class TuesdayTest {
     @Test
     public void testVehicleIsNoiseMaker() {
         Vehicle v = new Vehicle() {
+
             @Override
-            public <T extends Rideable> boolean setRider() {
+            public <T extends Rider> boolean setRider(T rider) {
                 return false;
             }
 
             @Override
-            public <T extends Rideable> T getRider() {
+            public <T extends Rider> T getRider() {
                 return null;
             }
 

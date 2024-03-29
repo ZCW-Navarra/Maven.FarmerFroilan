@@ -40,4 +40,8 @@ public class CropRow<T extends Crop> implements Iterable {
     public Iterator<T> iterator() {
         return crops.iterator();
     }
+
+    public Crop[] getCrops() {
+        return crops.toArray(new Crop[0]);
+    }
 }

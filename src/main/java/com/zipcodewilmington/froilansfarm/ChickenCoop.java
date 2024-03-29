@@ -16,4 +16,8 @@ public class ChickenCoop {
     public boolean remove(Chicken chicken) {
         return chickens.remove(chicken);
     }
+
+    public boolean contains(Chicken chicken) {
+        return chickens.contains(chicken);
+    }
 }

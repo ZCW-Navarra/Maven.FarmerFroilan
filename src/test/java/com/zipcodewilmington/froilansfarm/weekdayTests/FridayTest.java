@@ -207,7 +207,7 @@ public class FridayTest {
         assertTrue(froilan.eat(t));
         froilan.eat(t);
 
-        assertEquals(2, froilan,getNumTimesEaten());
+        assertEquals(2, froilan.getNumTimesEaten());
     }
 
     // - Test that Froilan can eat() 5 Egg objects
@@ -232,12 +232,12 @@ public class FridayTest {
     @Test
     public void froilandaEatsEarCorn() {
         Pilot froilanda = new Pilot();
-        EarCorn ec = new EarcCorn();
+        EarCorn ec = new EarCorn();
 
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -248,7 +248,7 @@ public class FridayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten(1));
+        assertEquals(1, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -259,7 +259,7 @@ public class FridayTest {
         assertTrue(froilanda.eat(e));
         froilanda.eat(e);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -269,13 +269,16 @@ public class FridayTest {
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
 
-        froilanda.eat(Egg, 2);
-        froilanda.eat(Tomato, 1);
-        froilanda.eat(EarCorn, 2);
+        froilanda.eat(e);
+        froilanda.eat(e);
+        assertEquals(2, froilanda.getNumTimesEaten());
 
-        assertEquals(2, froilanda.getNumTimesEaten(e));
-        assertEquals(1, froilanda.getNumTimesEaten(t));
-        assertEquals(2, froilanda.getNumTimesEaten(ec));
+        froilanda.eat(t);
+        assertEquals(3, froilanda.getNumTimesEaten());
+
+        froilanda.eat(ec);
+        froilanda.eat(ec);
+        assertEquals(5, froilanda.getNumTimesEaten());
     }
     @Test
     public void testFroilanIsNoiseMaker() {
@@ -366,6 +369,11 @@ public class FridayTest {
             @Override
             public <T extends Edible> boolean eat(T edible) {
                 return false;
+            }
+
+            @Override
+            public int getNumTimesEaten() {
+                return 0;
             }
         };
         assertTrue(a instanceof NoiseMaker);
@@ -469,7 +477,7 @@ public class FridayTest {
 
         cr.add(cs);
         cd.fertilize(cr);
-        assertTrue(cr.get(0).isFertilized);
+        assertTrue(cr.get(0).getFertilizedFlag());
 
     }
 

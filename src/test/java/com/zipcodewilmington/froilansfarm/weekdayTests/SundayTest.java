@@ -223,7 +223,7 @@ public class SundayTest {
         assertTrue(froilan.eat(t));
         froilan.eat(t);
 
-        assertEquals(2, froilan,getNumTimesEaten());
+        assertEquals(2, froilan.getNumTimesEaten());
     }
 
     // - Test that Froilan can eat() 5 Egg objects
@@ -259,7 +259,7 @@ public class SundayTest {
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     // - test that Froilanda can eat() 1 Tomato object
@@ -272,7 +272,7 @@ public class SundayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten(1));
+        assertEquals(1, froilanda.getNumTimesEaten());
     }
 
 
@@ -286,7 +286,7 @@ public class SundayTest {
         assertTrue(froilanda.eat(e));
         froilanda.eat(e);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
 
@@ -300,13 +300,15 @@ public class SundayTest {
 
         froilanda.eat(e);
         froilanda.eat(e);
+        assertEquals(2, froilanda.getNumTimesEaten());
+
         froilanda.eat(t);
+        assertEquals(3, froilanda.getNumTimesEaten());
+
         froilanda.eat(ec);
         froilanda.eat(ec);
 
-        assertEquals(2, froilanda.getNumTimesEaten(e));
-        assertEquals(1, froilanda.getNumTimesEaten(t));
-        assertEquals(2, froilanda.getNumTimesEaten(ec));
+        assertEquals(5, froilanda.getNumTimesEaten());
 
 
     }
@@ -479,6 +481,11 @@ public class SundayTest {
             @Override
             public <T extends Edible> boolean eat(T edible) {
                 return true;
+            }
+
+            @Override
+            public int getNumTimesEaten() {
+                return 0;
             }
         };
         assertTrue(a instanceof NoiseMaker);

@@ -31,7 +31,7 @@ public class MondayTest {
         for (Stable s : stables) {
             for (Horse h : s) {
                 int expectedTimesFed = 0;
-                assertEquals(h.toString() + " pre-eat failure", expectedTimesFed, h.getNumTimesFed());
+                assertEquals(h + " pre-eat failure", expectedTimesFed, h.getNumTimesEaten());
 
                 h.eat(new EarCorn());
                 h.eat(new EarCorn());
@@ -39,7 +39,7 @@ public class MondayTest {
 
                 expectedTimesFed = 3;
 
-                assertEquals(h.toString() + " post-eat failure", expectedTimesFed, h.getNumTimesFed());
+                assertEquals(h + " post-eat failure", expectedTimesFed, h.getNumTimesEaten());
             }
         }
     }
@@ -135,13 +135,16 @@ public class MondayTest {
         Tomato t = new Tomato();
         EarCorn ec = new EarCorn();
 
-        froilanda.eat(Egg, 2);
-        froilanda.eat(Tomato, 1);
-        froilanda.eat(EarCorn, 2);
+        froilanda.eat(e);
+        froilanda.eat(e);
+        assertEquals(2, froilanda.getNumTimesEaten());
 
-        assertEquals(2, froilanda.getNumTimesEaten(e));
-        assertEquals(1, froilanda.getNumTimesEaten(t));
-        assertEquals(2, froilanda.getNumTimesEaten(ec));
+        froilanda.eat(t);
+        assertEquals(3, froilanda.getNumTimesEaten());
+
+        froilanda.eat(ec);
+        froilanda.eat(ec);
+        assertEquals(5, froilanda.getNumTimesEaten());
     }
 
 
@@ -162,7 +165,7 @@ public class MondayTest {
         assertTrue(froilanda.eat(ec));
         froilanda.eat(ec);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
 // - test that Froilanda can eat() 1 Tomato object
@@ -175,7 +178,7 @@ public class MondayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten(1));
+        assertEquals(1, froilanda.getNumTimesEaten());
     }
 
 
@@ -189,7 +192,7 @@ public class MondayTest {
         assertTrue(froilanda.eat(e));
         froilanda.eat(e);
 
-        assertEquals(2, froilanda.getNumTimesEaten(2));
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     /**

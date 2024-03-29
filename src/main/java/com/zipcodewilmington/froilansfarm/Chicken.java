@@ -20,4 +20,9 @@ public class Chicken extends Produce implements Animal {
     public String makeNoise() {
         return "a";
     }
+
+    @Override
+    public Egg yield() {
+        return new Egg();
+    }
 }

@@ -168,7 +168,7 @@ public class WednesdayTest {
         assertTrue(froilan.eat(t));
         froilan.eat(t);
 
-        assertEquals(2, froilan,getNumTimesEaten());
+        assertEquals(2, froilan.getNumTimesEaten());
     }
 
     // - Test that Froilan can eat() 5 Egg objects
@@ -245,7 +245,7 @@ public class WednesdayTest {
 
         assertTrue(froilanda.eat(t));
 
-        assertEquals(1, froilanda,getNumTimesEaten());
+        assertEquals(1, froilanda.getNumTimesEaten());
     }
 
     // - test that Froilanda can eat() 2 Egg objects
@@ -428,6 +428,8 @@ public class WednesdayTest {
     public void testFrolianCanEatChicken() {
         Farmer frolian = new Farmer();
         Chicken c = new Chicken();
+        c.setFertilizedFlag(true);
+        Egg e = c.yield();
         assertTrue(frolian.eat(e));
         assertEquals(1, frolian.getNumTimesEaten());
     }
