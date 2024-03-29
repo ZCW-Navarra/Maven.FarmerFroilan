@@ -1,9 +1,9 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
 import org.junit.Test;
+import com.zipcodewilmington.froilansfarm.*;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertTrue;
 
 public class FridayTest extends AbstractWeekdayTest {
     @Test
@@ -222,12 +222,224 @@ public class FridayTest extends AbstractWeekdayTest {
         }
         assertEquals(5, froilan.getNumTimesEaten());
     }
+    @Test
+    public void testFroilandaIsEater() {
+        Farmer froilanda = new Farmer();
+
+        assertTrue(froilanda instanceof Eater);
+    }
+
+    @Test
+    public void froilandaEatsEarCorn() {
+        Farmer froilanda = new Farmer();
+        EarCorn ec = new EarcCorn();
+
+        assertTrue(froilanda.eat(ec));
+        froilanda.eat(ec);
+
+        assertEquals(2, froilanda.getNumTimesEaten(2));
+    }
+
+    @Test
+    public void froilandaEatsTomato() {
+        Famer froilanda = new Farmer();
+        Tomato t = new Tomato();
+
+        assertTrue(froilanda.eat(t));
+        froilanda.eat(t);
+
+        assertEquals(1, froilanda.getNumTimesEaten(1));
+    }
+
+    @Test
+    public void froilandaEatsEgg() {
+        Famer froilanda = new Farmer();
+        Egg e = new Egg();
+
+        assertTrue(froilanda.eat(e));
+        froilanda.eat(e);
+
+        assertEquals(2, froilanda.getNumTimesEaten(2));
+    }
+
+    @Test
+    public void froilandaEatsFood() {
+        Famer froilanda = new Farmer();
+        Egg e = new Egg();
+        Tomato t = new Tomato();
+        EarCorn ec = new EarCorn();
+
+        froilanda.eat(Egg, 2);
+        froilanda.eat(Tomato, 1);
+        froilanda.eat(EarCorn, 2);
+
+        assertEquals(2, froilanda.getNumTimesEaten(e));
+        assertEquals(1, froilanda.getNumTimesEaten(t));
+        assertEquals(2, froilanda.getNumTimesEaten(ec));
+    }
+    @Test
+    public void testFroilanIsNoiseMaker() {
+        Farmer frolian = new Farmer();
+        assertTrue(frolian instanceof NoiseMaker);
+    }
+
     // In addition to all the daily tasks (located in AbstractWeekdayTest.java)
     /**
-     By Friday, Froilanda realizes that the third CropRow is ready for an extra boost of nutrients.
+     By Friday, Froilanda realizes that the third CropRow(Crop plant) is ready for an extra boost of nutrients.
      She applies organic compost to enrich the soil and enhance the quality of the crop
      **/
 
     //Test
+    //- Froilanda is a pilot
+    @Test
+    public void testFroilandaIsPilot() {
+        Pilot froilanda = new Pilot();
+
+        assertTrue(froilanda instanceof Pilot);
+    }
+
+    //- CropDuster is Aircraft
+    @Test
+    public void testCropDusterIsAircraft(){
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof Aircraft);
+    }
+
+    //--> CropDuster is a FarmVehicle
+    @Test
+    public void testCropDusterIsFarmVehicle(){
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof FarmVehicle);
+    }
+    //--> CropDuster is a Vehicle
+    @Test
+    public void testCropDusterIsVehicle(){
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof Vehicle);
+    }
+    //--> CropDuster is Rideable
+    @Test
+    public void testCropDusterIsRideable(){
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof Riderable);
+    }
+
+    /**
+     * NoiseMaker
+     */
+    //
+    //-Test CropDuster is a NoiseMaker
+    @Test
+    public void testCropDusterIsNoiseMaker(){
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof NoiseMaker);
+    }
+    // Test Froilan is a NoiseMaker
+    @Test
+    public void testFroilanIsNoiseMaker() {
+        Farmer frolian = new Farmer();
+        assertTrue(frolian instanceof NoiseMaker);
+    }
+
+    // Test Froilanda is a NoiseMaker
+    @Test
+    public void testFroilandaIsNoiseMaker() {
+        Pilot frolianda = new Pilot();
+        assertTrue(frolianda instanceof NoiseMaker);
+    }
+    // Test Chicken is a NoiseMaker
+    @Test
+    public void testChickenIsNoiseMaker() {
+        Chicken c = new Chicken();
+        assertTrue(c instanceof NoiseMaker);
+    }
+    // Test Horse is a NoiseMaker
+    @Test
+    public void testHorseIsNoiseMaker() {
+        Horse h = new Horse();
+        assertTrue(h instanceof NoiseMaker);
+    }
+
+    // Test Animal is a NoiseMaker
+    @Test
+    public void testAnimalIsNoiseMaker() {
+        Animal a = new Animal();
+        assertTrue(a instanceof NoiseMaker);
+    }
+    // Test Aircraft is a NoiseMaker
+    @Test
+    public void testAircraftIsNoiseMaker() {
+        Aircraft a = new Aircraft();
+        assertTrue(a instanceof NoiseMaker);
+    }
+
+    // Test Tractor is a NoiseMaker
+    @Test
+    public void testTractorIsNoiseMaker() {
+        Tractor t = new Tractor();
+        assertTrue(t instanceof NoiseMaker);
+    }
+
+    // Test FarmVehicle is a NoiseMaker
+    @Test
+    public void testFarmVehicleIsNoiseMaker() {
+        FarmVehicle fv = new FarmVehicle();
+        assertTrue(fv instanceof NoiseMaker);
+    }
+
+    // Test Vehicle is a NoiseMaker
+    @Test
+    public void testVehicleIsNoiseMaker() {
+        Vehicle v = new Vehicle();
+        assertTrue(v instanceof NoiseMaker);
+    }
+
+    //Test froilan and froilanda can ride CropDuster
+    @Test
+    public void testFroilandaCanMountCropDuster() {
+        CropDuster cd = new CropDuster();
+        Pilot froilanda = new Pilot();
+        Farmer froilan = new Farmer();
+
+        assertTrue(froilanda.mount(cd));
+        assertFalse(froilan.mount(cd));
+
+        assertFalse(froilan.dismount(cd));
+        assertTrue(froilanda.dismount(cd));
+
+        // Froilan can not fly
+        assertFalse(froilan.mount(cd));
+        assertFalse(froilan.dismount(cd));
+    }
+    // - Test CropDuster can fly()
+    @Test
+    public void testFroilandaCanFlyCropDuster() {
+        Pilot froilanda = new Pilot();
+        Farmer froilan = new Farmer();
+
+        CropDuster cd = new CropDuster();
+        froilanda.mount(cd);
+        assertTrue(froilanda.fly());
+        //Farmer can't fly()
+        assertFalse(froilan.fly());
+    }
+    @Test
+    public void testFroilandaCanFertilizedCropRow1(){
+        Pilot froilanda = new Pilot();
+        CropDuster cd = new CropDuster();
+        froilanda.mount(cd);
+
+        CropRow<Crop> cr = new CropRow<>();
+        CornStalk cs = new CornStalk();
+
+        cr.add(cs);
+        cd.fertilize(cr.get(0));
+        assertTrue(cr.get(0).isFertilized);
+
+    }
+
+
+
+
 
 }
