@@ -304,7 +304,7 @@ public class SundayTest extends AbstractWeekdayTest {
         assertEquals(2, froilanda.getNumTimesEaten(e));
         assertEquals(1, froilanda.getNumTimesEaten(t));
         assertEquals(2, froilanda.getNumTimesEaten(ec));
-        }
+
 
     }
 
