@@ -5,13 +5,26 @@ import org.junit.Test;
 
 
 public class TractorTest {
+
+//    @Test
+//    public void testInstanceOf() {
+//        Tractor t= new Tractor();
+//        Assert.assertTrue(t instanceof Tractor);
+//    }
     @Test
-    public void testOperate() {
-        Tractor tractor = new Tractor();
-//        Farmer farmer = new Farmer();
-//        Field field = new Field();
-        Farm farm = new Farm();
-        Assert.assertTrue(tractor.operate(farm));
+    public void testInheritanceFarmVehicle(){
+        Tractor t = new Tractor();
+        Assert.assertTrue(t instanceof FarmVehicle);
+    }
+    @Test
+    public void testInheritanceNoiseMaker(){
+        Tractor t = new Tractor();
+        Assert.assertTrue(t instanceof NoiseMaker);
+    }
+    @Test
+    public void testInheritanceRideable(){
+        Tractor t = new Tractor();
+        Assert.assertTrue(t instanceof Rideable);
     }
     @Test
     public void testNoise(){
@@ -20,5 +33,7 @@ public class TractorTest {
         String actual = tractor.makeNoise();
         Assert.assertEquals(expected, actual);
     }
+
+
 
 }
