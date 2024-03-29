@@ -9,14 +9,12 @@ public class FridayTest extends AbstractWeekdayTest {
     @Test
     public void testHorseIsAHorse() {
         Horse h = new Horse();
-
         assertTrue(h instanceof Horse);
     }
     // - " an Animal
     @Test
     public void testHorseIsAnAnimal() {
         Horse h = new Horse();
-
         assertTrue(h instanceof Animal);
     }
     // - " a Rideable
@@ -222,7 +220,14 @@ public class FridayTest extends AbstractWeekdayTest {
         for (int i = 0; i < 5; i++) {
             assertTrue(froilan.eat(e));
         }
-
         assertEquals(5, froilan.getNumTimesEaten());
     }
+    // In addition to all the daily tasks (located in AbstractWeekdayTest.java)
+    /**
+     By Friday, Froilanda realizes that the third CropRow is ready for an extra boost of nutrients.
+     She applies organic compost to enrich the soil and enhance the quality of the crop
+     **/
+
+    //Test
+
 }
