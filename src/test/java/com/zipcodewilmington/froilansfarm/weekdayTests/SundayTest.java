@@ -88,7 +88,7 @@ public class SundayTest extends AbstractWeekdayTest {
 
         assertEquals(froilan, h.getRider());
         // the same as this
-        
+
 //        if (Objects.equals(froilan, h.getRider())) {
 //            assertTrue(true);
 //        } else {
