@@ -4,6 +4,4 @@ import org.junit.Test;
 
 public class CropRowTest {
 
-    @Test
-    public void
 }
