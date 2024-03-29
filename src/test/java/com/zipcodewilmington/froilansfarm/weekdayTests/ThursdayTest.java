@@ -480,10 +480,14 @@ public class ThursdayTest {
     // Test Animal is a NoiseMaker
     @Test
     public void testAnimalIsNoiseMaker() {
+<<<<<<< HEAD
+        Animal a = new Animal();
+=======
         Animal a = new Animal() {};
         String expected = "a";
 
         assertEquals(expected, a.makeNoise());
+>>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
         assertTrue(a instanceof NoiseMaker);
     }
 
@@ -520,20 +524,28 @@ public class ThursdayTest {
     // Test FarmVehicle is a NoiseMaker
     @Test
     public void testFarmVehicleIsNoiseMaker() {
+<<<<<<< HEAD
+        FarmVehicle fv = new FarmVehicle();
+=======
         FarmVehicle fv = new FarmVehicle() {};
         String expected = "a";
 
         assertEquals(expected, fv.makeNoise());
+>>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
         assertTrue(fv instanceof NoiseMaker);
     }
 
     // Test Vehicle is a NoiseMaker
     @Test
     public void testVehicleIsNoiseMaker() {
+<<<<<<< HEAD
+        Vehicle v = new Vehicle();
+=======
         Vehicle v = new Vehicle() {};
         String expected = "a";
 
         assertEquals(expected, v.makeNoise());
+>>>>>>> a98553da7e28fe723fe5ce6f49b6eb96e22b86bd
         assertTrue(v instanceof NoiseMaker);
     }
 }
