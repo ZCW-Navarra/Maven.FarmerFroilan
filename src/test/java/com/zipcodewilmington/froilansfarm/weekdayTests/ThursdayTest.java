@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
+import com.zipcodewilmington.froilansfarm.Farmer;
 import org.junit.Test;
 import java.util.Objects;
 import static org.junit.Assert.*;
