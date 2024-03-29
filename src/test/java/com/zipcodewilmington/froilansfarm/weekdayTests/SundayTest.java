@@ -444,4 +444,3 @@ public class SundayTest extends AbstractWeekdayTest {
     // -- For each of the three crop types that we do
 
 }
-

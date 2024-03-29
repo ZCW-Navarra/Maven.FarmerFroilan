@@ -1,8 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
-
 import org.junit.Test;
-import java.util.Objects;
 import static org.junit.Assert.*;
 
 public class WednesdayTest extends AbstractWeekdayTest {
@@ -17,7 +15,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - " an Animal
-
     @Test
     public void testHorseIsAnAnimal() {
         Horse h = new Horse();
@@ -26,7 +23,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - " a Rideable
-
     @Test
     public void testHorseIsARideable() {
         Horse h = new Horse();
@@ -35,7 +31,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilan and Froilanda are both Persons
-
     @Test
     public void testFroilanAndFroilandaArePeople() {
         Farmer froilan = new Farmer();
@@ -46,7 +41,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilan and Froilanda are both Riders
-
     @Test
     public void testFroilanAndFroilandaAreRiders() {
         Farmer froilan = new Farmer();
@@ -57,7 +51,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilan and Froilanda can mount() and dismount() each Horse
-
     @Test
     public void testFroilanAndFroilandaCanRide() {
         Farmer froilan = new Farmer();
@@ -76,7 +69,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
 
     // - test that when Froilan mount()s a Horse, that Horse is updated to
     // being ridden by Froilan
-
     @Test
     public void testFroilanMountsHorse() {
         Farmer froilan = new Farmer();
@@ -95,7 +87,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
 
     // - test that when Froilan dismount()s a Horse, that Horse is updated to
     // being ridden by null
-
     @Test
     public void testFroilanDismountsHorse() {
         Farmer froilan = new Farmer();
@@ -107,11 +98,8 @@ public class WednesdayTest extends AbstractWeekdayTest {
 
         assertNull(h.getRider());
     }
-
-
     // Feeding each Horse 3 EarCorn
     // - test that EarCorn is an EarCorn
-
     @Test
     public void testEarCornIsEarCorn() {
         EarCorn e = new EarCorn();
@@ -120,7 +108,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - " is an Edible
-
     @Test
     public void testEarCornIsEdible() {
         EarCorn e = new EarCorn();
@@ -129,7 +116,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that each Horse is an Eater
-
     @Test
     public void testHorseIsEater() {
         Horse h = new Horse();
@@ -138,7 +124,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that each Horse can eat() 3 EarCorn objects
-
     @Test
     public void testHorseEatCorn() {
         Horse h = new Horse();
@@ -155,7 +140,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     // For breakfast
     // Froilan eats 1 EarCorn, 2 Tomato, and 5 Egg
     // - test that Froilan is an Eater
-
     @Test
     public void testFroilanIsEater() {
         Farmer froilan = new Farmer();
@@ -164,7 +148,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Tomato is a Tomato
-
     @Test
     public void testTomatoIsTomato() {
         Tomato t = new Tomato();
@@ -173,7 +156,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Tomato is an Edible
-
     @Test
     public void testTomatoIsEdible() {
         Tomato t = new Tomato();
@@ -182,7 +164,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Egg is an Egg
-
     @Test
     public void testEggIsEgg() {
         Egg e = new Egg();
@@ -191,7 +172,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Egg is an Edible
-
     @Test
     public void testEggIsEdible() {
         Egg e = new Egg();
@@ -200,7 +180,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - Test that Froilan can eat() 1 EarCorn object
-
     @Test
     public void testFroilanEatCorn() {
         Farmer froilan = new Farmer();
@@ -212,7 +191,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - Test that Froilan can eat() 2 Tomato objects
-
     @Test
     public void testFroilanEatTomato() {
         Farmer froilan = new Farmer();
@@ -225,7 +203,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - Test that Froilan can eat() 5 Egg objects
-
     @Test
     public void testFroilanEatEggs() {
         Farmer froilan = new Farmer();
@@ -239,7 +216,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // Froilanda eats 2 EarCorn, 1 Tomato, and 2 Egg
-
     // - test that Froilanda is an Eater
     @Test
     public void testFroilandaIsEater() {
@@ -249,7 +225,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Tomato is a Tomato
-
     @Test
     public void testTomatoIsTomato() {
         Tomato t = new Tomato();
@@ -258,7 +233,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Tomato is an Edible
-
     @Test
     public void testTomatoIsEdible() {
         Tomato t = new Tomato();
@@ -267,7 +241,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Egg is an Egg
-
     @Test
     public void testEggIsEgg() {
         Egg e = new Egg();
@@ -276,7 +249,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Egg is an Edible
-
     @Test
     public void testEggIsEdible() {
         Egg e = new Egg();
@@ -285,7 +257,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilanda can eat() 2 EarCorn objects
-
     @Test
     public void testFroilandaEatCorn() {
         Farmer froilanda = new Farmer();
@@ -298,7 +269,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilanda can eat() 1 Tomato object
-
     @Test
     public void tesFroilandaEatTomato() {
         Farmer froilanda = new Farmer();
@@ -310,7 +280,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilanda can eat() 2 Egg objects
-
     @Test
     public void testFroilandaEatEggs() {
         Farmer froilanda = new Farmer();
@@ -323,10 +292,8 @@ public class WednesdayTest extends AbstractWeekdayTest {
         assertEquals(5, froilanda.getNumTimesEaten());
     }
 
-
     // Sunday, Froilan plants 3 different types of Crop in his 1st, 2nd, and 3rd CropRow
     // - test that Froilan is a Botanist
-
     @Test
     public void testFroilanBotanist() {
         Farmer froilan = new Farmer();
@@ -335,7 +302,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that Froilan is a Farmer
-
     @Test
     public void testFroilanFarmer() {
         Farmer froilan = new Farmer();
@@ -344,7 +310,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // - test that CropRow holds Crop
-
     @Test
     public <T extends Crop> void testCropRowHoldsCrop() {
         CropRow<T extends Crop> cr = new CropRow<>();
@@ -358,7 +323,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
 
     // - test that:
     // -- Crop type A is a Crop
-
     @Test
     public void testCornIsCrop() {
         CornStalk cs = new CornStalk();
@@ -381,7 +345,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     }
 
     // -- Crop type A can be planted in CropRow A
-
     @Test
     public void testCornInCornRow() {
         CropRow<CornStalk> cornRow = new CropRow<>();
@@ -429,7 +392,6 @@ public class WednesdayTest extends AbstractWeekdayTest {
     // -- Froilan can plant() a Crop type A in CropRow A
     // -- For each of the three crop types that we do
     // -- CornStalk, TomatoPlant, PotatoPlant are the three crop types
-
     @Test
     public void testPlantCorn() {
         Farmer froilan = new Farmer();
