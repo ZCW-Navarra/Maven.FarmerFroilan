@@ -16,5 +16,5 @@ public class CropRow<T extends Crop> {
             return false;
         }
     }
->>>>>>> 80098928e9ece17cb55071c4be3459b0e74fa1ff
+} >>>>>>> 80098928e9ece17cb55071c4be3459b0e74fa1ff
 }

@@ -465,7 +465,7 @@ public class ThursdayTest extends AbstractWeekdayTest {
 
     // Test Animal is a NoiseMaker
     @Test
-    public void testAnimalIsNoiseMaker() {      //////////////////////////////////////////
+    public void testAnimalIsNoiseMaker() {
         Animal a = new Animal();
         assertTrue(a instanceof NoiseMaker);
     }
@@ -493,14 +493,14 @@ public class ThursdayTest extends AbstractWeekdayTest {
 
     // Test FarmVehicle is a NoiseMaker
     @Test
-    public void testFarmVehicleIsNoiseMaker() {     //////////////////////////////////////////
+    public void testFarmVehicleIsNoiseMaker() {
         FarmVehicle fv = new FarmVehicle();
         assertTrue(fv instanceof NoiseMaker);
     }
 
     // Test Vehicle is a NoiseMaker
     @Test
-    public void testVehicleIsNoiseMaker() {     //////////////////////////////////////////
+    public void testVehicleIsNoiseMaker() {
         Vehicle v = new Vehicle();
         assertTrue(v instanceof NoiseMaker);
     }
