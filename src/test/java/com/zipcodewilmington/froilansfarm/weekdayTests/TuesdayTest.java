@@ -390,7 +390,7 @@ public class TuesdayTest {
     public void testTractorHarvest() {
         Tractor t = new Tractor();
 
-        assertTrue(t.harvest());
+        assertTrue(t.harvest(new CropRow<>()));
     }
 // - test for harvesting Cornstalk
     @Test

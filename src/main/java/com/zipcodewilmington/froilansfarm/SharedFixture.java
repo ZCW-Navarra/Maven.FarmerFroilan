@@ -36,10 +36,10 @@ public class SharedFixture {
 
         cornRow = new CropRow<>();
         tomatoRow = new CropRow<>();
-        froilansField.addRow(cornRow);
-        froilansField.addRow(tomatoRow);
+        froilansField.add(cornRow);
+        froilansField.add(tomatoRow);
         for (int i = 0; i < 3; i++) {
-            froilansField.addRow(new CropRow<Crop>());
+            froilansField.add(new CropRow<Crop>());
         }
 
         coopA = new ChickenCoop();

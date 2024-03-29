@@ -11,12 +11,12 @@ public class Tractor implements FarmVehicle {
     }
 
     @Override
-    public <T extends Rideable> boolean setRider() {
+    public <T extends Rider> boolean setRider(T rider) {
         return false;
     }
 
     @Override
-    public <T extends Rideable> T getRider() {
+    public <T extends Rider> T getRider() {
         return null;
     }
 }
