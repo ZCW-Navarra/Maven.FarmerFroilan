@@ -182,7 +182,63 @@ public class TuesdayTest extends AbstractWeekdayTest {
 
         assertEquals(5, froilan.getNumTimesEaten());
     }
-// Test:
+
+    @Test
+    public void testFroilandaIsEater() {
+        Farmer froilanda = new Farmer();
+
+        assertTrue(froilanda instanceof Eater);
+    }
+
+    @Test
+    public void froilandaEatsEarCorn() {
+        Farmer froilanda = new Farmer();
+        EarCorn ec = new EarcCorn();
+
+        assertTrue(froilanda.eat(ec));
+        froilanda.eat(ec);
+
+        assertEquals(2, froilanda.getNumTimesEaten(2));
+    }
+
+    @Test
+    public void froilandaEatsTomato() {
+        Famer froilanda = new Farmer();
+        Tomato t = new Tomato();
+
+        assertTrue(froilanda.eat(t));
+        froilanda.eat(t);
+
+        assertEquals(1, froilanda.getNumTimesEaten(1));
+    }
+
+    @Test
+    public void froilandaEatsEgg() {
+        Famer froilanda = new Farmer();
+        Egg e = new Egg();
+
+        assertTrue(froilanda.eat(e));
+        froilanda.eat(e);
+
+        assertEquals(2, froilanda.getNumTimesEaten(2));
+    }
+
+    @Test
+    public void froilandaEatsFood() {
+        Famer froilanda = new Farmer();
+        Egg e = new Egg();
+        Tomato t = new Tomato();
+        EarCorn ec = new EarCorn();
+
+        froilanda.eat(Egg, 2);
+        froilanda.eat(Tomato, 1);
+        froilanda.eat(EarCorn, 2);
+
+        assertEquals(2, froilanda.getNumTimesEaten(e));
+        assertEquals(1, froilanda.getNumTimesEaten(t));
+        assertEquals(2, froilanda.getNumTimesEaten(ec));
+    }
+
     // Froilan can use the Tractor
 
     @Test
