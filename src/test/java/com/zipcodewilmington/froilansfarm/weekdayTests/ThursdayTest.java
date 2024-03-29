@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
-import com.zipcodewilmington.froilansfarm.NoiseMaker;
+import com.zipcodewilmington.froilansfarm.*;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
