@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Objects;
 import static org.junit.Assert.*;
 
-public class SundayTest extends AbstractWeekdayTest {
+public class WednesdayTest extends AbstractWeekdayTest {
     // Riding each Horse in each Stable
     // - test that each Horse is a Horse
 
