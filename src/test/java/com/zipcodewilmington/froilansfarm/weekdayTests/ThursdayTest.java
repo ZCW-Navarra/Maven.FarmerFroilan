@@ -325,18 +325,114 @@ public class ThursdayTest extends AbstractWeekdayTest {
     //On Thursday, his sister, Froilanda uses the CropDuster to fly over the Field* and fertilize each of the CropRow
 
     // Test CropDuster is a CropDuster
+    @Test
+    public void testCropDusterIsACropDuster() {
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof CropDuster);
+    }
+
     // Test CropDuster is Aircraft
+    @Test
+    public void testCropDusterIsAnAircraft() {
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof Aircraft);
+    }
+
     // Test CropDuster is Vehicle
+    @Test
+    public void testCropDusterIsVehicle() {
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof Vehicle);
+    }
+
     // Test CropDuster is Rideable
-    // Test Frolinda can mount CropDuster
-    // Test Frolinda can dismount CropDuster
+    @Test
+    public void testCropDusterIsRideable() {
+        CropDuster cd = new CropDuster();
+        assertTrue(cd instanceof Rideable);
+    }
+
+    // Test Persons can mount/dismount CropDuster
+    @Test
+    public void testFrolandaCanMountCropDuster() {
+        CropDuster cd = new CropDuster();
+        Pilot froilanda = new Pilot();
+        Farmer froilan = new Farmer();
+
+        assertTrue(froilanda.mount(cd));
+        assertFalse(froilan.mount(cd));
+
+        assertFalse(froilan.dismount(cd));
+        assertTrue(froilanda.dismount(cd));
+
+        //Farmer can not fly
+        assertFalse(froilan.mount(cd));
+        assertFalse(froilan.dismount(cd));
+    }
+
+    // - test that when Froilanda mount()s a CropDuster, that CropDuster is updated to
+    // being ridden by Froilanda
+    @Test
+    public void testFroilandaMountsCropDuster() {
+        Pilot froilanda = new Pilot();
+        CropDuster cd = new CropDuster();
+
+        froilanda.mount(cd);
+
+        assertEquals(froilanda, cd.getRider());
+    }
+
+    // - test that when Froilanda dismount()s a CropDuster, that CropDuster is updated to
+    // being ridden by null
+
+    @Test
+    public void testFroilandaDismountsCropDuster() {
+        Pilot froilanda = new Pilot();
+        CropDuster cd = new CropDuster();
+
+        froilanda.mount(cd);
+
+        froilanda.dismount(cd);
+
+        assertNull(cd.getRider());
+    }
+
     // Test CropDuster can fly
-    // Test CropDuster can fertilize CropRow A
-    // Test CropDuster can fertilize CropRow B
-    // Test CropDuster can fertilize CropRow C
+    @Test
+    public void testFroilandaCanFlyCropDuster() {
+        Pilot froilanda = new Pilot();
+        Farmer froilan = new Farmer();
+        CropDuster cd = new CropDuster();
+        froilanda.mount(cd);
+        assertTrue(froilanda.fly());        // ???
+        assertFalse(froilan.fly());         // ???
+    }
 
+    // Test CropDuster can fertilize CropRows
+    @Test
+    public void testPilotCanFertilizeCropRowA() {
+        Pilot froilanda = new Pilot();
+        CropDuster cd = new CropDuster();
+        froilanda.mount(cd);
 
+        CropRow<Crop> cr = new CropRow<>();
+        CornStalk cs = new CornStalk();
+        TomatoPlant tp = new TomatoPlant();
+        PotatoPlant plant = new PotatoPlant();
 
+        cr.add(cs);
+        cr.add(tp);
+        cr.add(plant);
+
+        cd.fertilize(cr.get(0));
+        cd.fertilize(cr.get(1));
+        cd.fertilize(cr.get(2));
+
+        assertTrue(cr.get(0).isFertilized);
+        assertTrue(cr.get(1).isFertilized);
+        assertTrue(cr.get(2).isFertilized);
+
+    }
 
     // Test Froilan is a NoiseMaker
     @Test
