@@ -2,8 +2,10 @@ package com.zipcodewilmington.froilansfarm;
 
 public class Person implements Eater, NoiseMaker, Rider {
     Integer numTimesEaten = 0;
+    private Horse rider;
+
     public <T extends Rideable> boolean mount(T rideable) {
-        if (rideable.getRider().equals(null)) {
+        if (rideable != null && rideable.getRider() == null) {
             rideable.setRider(this);
             return true;
         }
@@ -11,7 +13,7 @@ public class Person implements Eater, NoiseMaker, Rider {
     }
 
     public <T extends Rideable> boolean dismount(T rideable) {
-        if (rideable.getRider().equals(this)) {
+        if (rideable.getRider() == null && rideable.getRider().equals(this)) {
             rideable.setRider(null);
             return true;
         }
@@ -33,4 +35,6 @@ public class Person implements Eater, NoiseMaker, Rider {
     public String makeNoise() {
         return "a";
     }
+
+
 }

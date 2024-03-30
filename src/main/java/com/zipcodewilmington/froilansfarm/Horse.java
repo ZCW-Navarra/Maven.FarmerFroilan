@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Horse implements Rideable, Animal {
     Integer numTimesEaten = 0;
-    Rider rider;
+    private Rider rider;
     @Override
     public <T extends Rider> boolean setRider(T rider) {
         try {
@@ -18,7 +18,7 @@ public class Horse implements Rideable, Animal {
 
     @Override
     public <T extends Rider> T getRider() {
-        return (T) rider;
+        return (T) this.rider;
     }
 
     @Override
