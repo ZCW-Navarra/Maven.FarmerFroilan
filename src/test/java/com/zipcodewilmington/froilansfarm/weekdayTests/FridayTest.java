@@ -491,7 +491,6 @@ public class FridayTest {
     @Test
     public void testFroilandaCanFlyCropDuster() {
         Pilot froilanda = new Pilot();
-        Farmer froilan = new Farmer();
 
         CropDuster cd = new CropDuster();
         froilanda.mount(cd);

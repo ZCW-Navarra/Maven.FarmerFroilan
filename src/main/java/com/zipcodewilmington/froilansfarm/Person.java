@@ -12,8 +12,9 @@ public class Person implements Eater, NoiseMaker, Rider {
         return false;
     }
 
+
     public <T extends Rideable> boolean dismount(T rideable) {
-        if (rideable.getRider() == null && rideable.getRider().equals(this)) {
+        if (rideable.getRider() != null && rideable.getRider().equals(this)) {
             rideable.setRider(null);
             return true;
         }
