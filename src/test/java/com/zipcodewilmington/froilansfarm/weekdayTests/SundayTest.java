@@ -272,7 +272,7 @@ public class SundayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten());
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
 

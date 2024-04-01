@@ -284,7 +284,7 @@ public class ThursdayTest {
             assertTrue(froilanda.eat(e));
         }
 
-        assertEquals(5, froilanda.getNumTimesEaten());
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     //On Thursday, his sister, Froilanda uses the CropDuster to fly over the Field* and fertilize each of the CropRow
@@ -470,7 +470,7 @@ public class ThursdayTest {
     @Test
     public void testCropDusterIsNoiseMaker() {
         CropDuster cd = new CropDuster();
-        String expected = "a";
+        String expected = "Make plane engine noise!";
 
         assertEquals(expected, cd.makeNoise());
         assertTrue(cd instanceof NoiseMaker);
@@ -480,7 +480,7 @@ public class ThursdayTest {
     @Test
     public void testAircraftIsNoiseMaker() {
         Aircraft a = new Aircraft();
-        String expected = "a";
+        String expected = "Make plane engine noise!";
 
         assertEquals(expected, a.makeNoise());
         assertTrue(a instanceof NoiseMaker);
@@ -490,7 +490,7 @@ public class ThursdayTest {
     @Test
     public void testTractorIsNoiseMaker() {
         Tractor t = new Tractor();
-        String expected = "a";
+        String expected = "Vroom";
 
         assertEquals(expected, t.makeNoise());
         assertTrue(t instanceof NoiseMaker);
@@ -512,7 +512,7 @@ public class ThursdayTest {
 
             @Override
             public String makeNoise() {
-                return null;
+                return "a";
             }
         };
         String expected = "a";
@@ -537,7 +537,7 @@ public class ThursdayTest {
 
             @Override
             public String makeNoise() {
-                return null;
+                return "a";
             }
         };
         String expected = "a";

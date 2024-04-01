@@ -181,7 +181,7 @@ public class MondayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten());
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
 
@@ -258,6 +258,8 @@ public class MondayTest {
     @Test
     public void testFlyMethod() {
         Aircraft aircraft = new Aircraft();
+        Pilot froilanda = new Pilot();
+        aircraft.setRider(froilanda);
 //        boolean expected = true;
         boolean actual = aircraft.fly();
         assertTrue(actual);

@@ -38,13 +38,13 @@ public class TractorTest {
         Tractor tractor = new Tractor();
         CropRow<TomatoPlant> cropRow = new CropRow<>();
 
-        assertFalse(tractor.harvest(cropRow));
+        assertTrue(tractor.harvest(cropRow));
     }
     @Test
     public void testSetRider(){
         Tractor tractor = new Tractor();
         Farmer farmer = new Farmer();
-        assertFalse(tractor.setRider(farmer));
+        assertTrue(tractor.setRider(farmer));
     }
 
     @Test

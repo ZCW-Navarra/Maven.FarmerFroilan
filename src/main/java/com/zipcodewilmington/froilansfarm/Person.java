@@ -1,22 +1,23 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Person implements Eater, NoiseMaker, Rider {
-    Integer numTimesEaten = 0;
-    private Horse rider;
+import java.util.Objects;
 
-    public <T extends Rideable> boolean mount(T rideable) {
-        if (rideable != null && rideable.getRider() == null) {
-            rideable.setRider(this);
-            return true;
+public class Person<T extends Rideable> implements Eater, NoiseMaker, Rider<T> {
+    Integer numTimesEaten = 0;
+
+
+    public boolean mount(T rideable) {
+
+        if (Objects.isNull(rideable.getRider())) {
+            return rideable.setRider(this);
         }
         return false;
     }
 
 
-    public <T extends Rideable> boolean dismount(T rideable) {
-        if (rideable.getRider() != null && rideable.getRider().equals(this)) {
-            rideable.setRider(null);
-            return true;
+    public boolean dismount(T rideable) {
+        if (Objects.nonNull(rideable.getRider()) && rideable.getRider().equals(this)) {
+            return rideable.setRider(null);
         }
         return false;
     }

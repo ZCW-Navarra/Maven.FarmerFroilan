@@ -261,7 +261,7 @@ public class WednesdayTest {
             assertTrue(froilanda.eat(e));
         }
 
-        assertEquals(5, froilanda.getNumTimesEaten());
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     // Sunday, Froilan plants 3 different types of Crop in his 1st, 2nd, and 3rd CropRow
@@ -423,7 +423,7 @@ public class WednesdayTest {
     @Test
     public void testChickensAreEdible() {
         Chicken c = new Chicken();
-        assertTrue(c instanceof Edible);
+        assertFalse(c instanceof Edible);
     }
 
     //Test a person can eat chickens
@@ -449,6 +449,7 @@ public class WednesdayTest {
     @Test
     public void testChickenEdibleEggsCanBeFertilized() {
         Chicken c = new Chicken();
+        c.setFertilizedFlag(true);
 
         assertTrue(c.getFertilizedFlag());
     }

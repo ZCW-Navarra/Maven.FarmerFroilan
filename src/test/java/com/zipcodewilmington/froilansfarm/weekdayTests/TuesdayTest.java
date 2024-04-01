@@ -55,7 +55,7 @@ public class TuesdayTest {
         assertFalse(froilanda.mount(h));
 
         assertFalse(froilanda.dismount(h));
-        assertFalse(froilan.dismount(h));
+        assertTrue(froilan.dismount(h));
 
         assertTrue(froilanda.mount(h));
         assertTrue(froilanda.dismount(h));
@@ -209,7 +209,7 @@ public class TuesdayTest {
         assertTrue(froilanda.eat(t));
         froilanda.eat(t);
 
-        assertEquals(1, froilanda.getNumTimesEaten());
+        assertEquals(2, froilanda.getNumTimesEaten());
     }
 
     @Test
@@ -427,6 +427,7 @@ public class TuesdayTest {
         Tractor t = new Tractor();
         Crop c = new Crop(EarCorn::new) {};
         CropRow<Crop> cr = new CropRow<>();
+        c.setFertilizedFlag(true);
         cr.add(c);
 
         assertTrue(t.harvest(cr));

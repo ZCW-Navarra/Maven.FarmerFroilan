@@ -8,7 +8,9 @@ public class Farm {
     FarmHouse house;
 
     public Farm() {
-
+        stables = new ArrayList<>();
+        coops = new ArrayList<>();
+        house = new FarmHouse();
     }
 
     public Stable[] getStables() {
