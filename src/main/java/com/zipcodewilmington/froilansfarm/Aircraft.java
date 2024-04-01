@@ -8,7 +8,7 @@ public class Aircraft implements Vehicle {
 
     @Override
     public String makeNoise() {
-        return null;
+        return "Plane engine makes noise!";
     }
 
     @Override
