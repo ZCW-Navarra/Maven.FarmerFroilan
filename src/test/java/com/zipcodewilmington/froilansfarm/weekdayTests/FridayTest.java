@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.weekdayTests;
 
+import org.junit.Assert;
 import org.junit.Test;
 import com.zipcodewilmington.froilansfarm.*;
 
@@ -31,6 +32,22 @@ public class FridayTest {
 
         assertTrue(froilanda instanceof Person);
         assertTrue(froilan instanceof Person);
+    }
+
+    @Test
+    public void testFarmerIBotanist() {
+        Farmer froilan = new Farmer();
+        Pilot froilanda = new Pilot();
+
+        assertTrue(froilan instanceof Botanist);
+    }
+
+    @Test
+    public void testBotanistIsAPerson(){
+        Botanist froilan = new Botanist();
+        assertTrue(froilan instanceof Person);
+
+
     }
     // - test that Froilan and Froilanda are both Riders
     @Test
@@ -136,6 +153,14 @@ public class FridayTest {
 
         assertEquals(3, h.getNumTimesEaten());
     }
+    // test Person is Eater
+
+    @Test
+    public void TestPersonIsEater() {
+        Person p = new Person();
+        assertTrue(p instanceof Eater);
+    }
+
 
 
     // For breakfast
@@ -327,10 +352,18 @@ public class FridayTest {
         assertTrue(cd instanceof Rideable);
     }
 
+
+
     /**
      * NoiseMaker
      */
-    //
+    //- Test Person is a NoiseMaker
+    @Test
+    public void testPersonIsNoisemaker() {
+        Person p = new Person();
+        assertTrue(p instanceof NoiseMaker);
+    }
+
     //-Test CropDuster is a NoiseMaker
     @Test
     public void testCropDusterIsNoiseMaker(){
@@ -378,6 +411,7 @@ public class FridayTest {
         };
         assertTrue(a instanceof NoiseMaker);
     }
+
     // Test Aircraft is a NoiseMaker
     @Test
     public void testAircraftIsNoiseMaker() {
@@ -457,12 +491,11 @@ public class FridayTest {
     @Test
     public void testFroilandaCanFlyCropDuster() {
         Pilot froilanda = new Pilot();
-        Farmer froilan = new Farmer();
 
         CropDuster cd = new CropDuster();
         froilanda.mount(cd);
         assertTrue(cd.fly());
-        //Farmer can't fly()
+
         froilanda.dismount(cd);
         assertFalse(cd.fly());
     }
@@ -480,9 +513,5 @@ public class FridayTest {
         assertTrue(cr.get(0).getFertilizedFlag());
 
     }
-
-
-
-
 
 }
