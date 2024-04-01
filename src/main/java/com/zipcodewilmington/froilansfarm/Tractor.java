@@ -7,7 +7,7 @@ public class Tractor implements FarmVehicle {
 
     @Override
     public String makeNoise() {
-        return null;
+        return "Vroom";
     }
 
     @Override

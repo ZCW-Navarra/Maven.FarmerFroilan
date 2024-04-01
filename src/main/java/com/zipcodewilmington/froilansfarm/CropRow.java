@@ -6,7 +6,8 @@ import java.util.Iterator;
 public class CropRow<T extends Crop> implements Iterable {
     ArrayList<T> crops;
 
-    public CropRow() {
+    public CropRow()
+    {
         this.crops = new ArrayList<>();
     }
 
