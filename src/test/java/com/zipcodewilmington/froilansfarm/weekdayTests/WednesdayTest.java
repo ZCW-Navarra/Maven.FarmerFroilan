@@ -2,6 +2,9 @@ package com.zipcodewilmington.froilansfarm.weekdayTests;
 
 import com.zipcodewilmington.froilansfarm.*;
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 public class WednesdayTest {
@@ -448,6 +451,93 @@ public class WednesdayTest {
         Chicken c = new Chicken();
 
         assertTrue(c.getFertilizedFlag());
+    }
+
+
+    // Test constructor or CropDuster
+    @Test
+    public void testConstructor() {
+        CropDuster cropDuster = new CropDuster();
+        assertNotNull(cropDuster);
+    }
+
+
+    // Test CropDuster can fertilize CropRow
+    @Test
+    public void testFertilize() {
+        CropDuster cropDuster = new CropDuster();
+
+        CropRow<Crop> cropRowWithCrops = new CropRow<>();
+        cropRowWithCrops.add(new TomatoPlant());
+        cropRowWithCrops.add(new PotatoPlant());
+        cropRowWithCrops.add(new CornStalk());
+
+        assertFalse(cropDuster.fertilize(cropRowWithCrops));
+
+        //Test fertilize empty row
+        CropRow<Crop> emptyCropRow = new CropRow<>();
+
+        assertFalse(cropDuster.fertilize(emptyCropRow));
+    }
+
+    @Test
+    public void testAddCrop() {
+        CropRow<Crop> cropRow = new CropRow<>();
+        CornStalk cornStalk1 = new CornStalk();
+        assertTrue(cropRow.add(cornStalk1));
+        assertEquals(1, cropRow.size());
+        assertEquals(cornStalk1, cropRow.get(0));
+    }
+
+    @Test
+    public void testRemoveCrop() {
+        CropRow<Crop> cropRow = new CropRow<>();
+        CornStalk cornStalk1 = new CornStalk();
+        assertFalse(cropRow.remove(cornStalk1)); // Removing from an empty list should return false
+        cropRow.add(cornStalk1);
+        assertTrue(cropRow.remove(cornStalk1));
+        assertEquals(0, cropRow.size());
+    }
+
+    @Test
+    public void testSize() {
+        CropRow<Crop> cropRow = new CropRow<>();
+        assertEquals(0, cropRow.size());
+        cropRow.add(new CornStalk());
+        assertEquals(1, cropRow.size());
+    }
+
+    @Test
+    public void testIterator() {
+        CropRow<Crop> cropRow = new CropRow<>();
+        CornStalk cornStalk1 = new CornStalk();
+        CornStalk cornStalk2 = new CornStalk();
+        cropRow.add(cornStalk1);
+        cropRow.add(cornStalk2);
+
+        int count = 0;
+        for (Object crop : cropRow) {
+            if (count == 0)
+                assertEquals(cornStalk1, crop);
+            else if (count == 1)
+                assertEquals(cornStalk2, crop);
+            count++;
+        }
+        assertEquals(2, count);
+    }
+
+    @Test
+    public void testGetCrops() {
+        CropRow<Crop> cropRow = new CropRow<>();
+        CornStalk cornStalk1 = new CornStalk();
+        CornStalk cornStalk2 = new CornStalk();
+        cropRow.add(cornStalk1);
+        cropRow.add(cornStalk2);
+
+        Crop[] crops = cropRow.getCrops();
+        assertEquals(2, crops.length);
+        assertEquals(cornStalk1, crops[0]);
+        assertEquals(cornStalk2, crops[1]);
     }
 
 }
